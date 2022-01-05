@@ -1,16 +1,16 @@
 import React from "react";
-import "../index.css";
-import Index from "./Carts/index";
+import Cart from "../Carts";
+import style from "./main.module.css";
 
 const Main = () => {
   return (
     <>
-      <div className="input">
+      <div className={style.input}>
         <h1>Поиск автосервиса</h1>
         <input type="text" placeholder="введите текс" />
       </div>
 
-      <Index />
+      <Cart />
     </>
   );
 };

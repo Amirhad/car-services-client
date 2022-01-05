@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: black;
+}
+.carts {
+  border-radius: 25px;
+  margin-top: 40px;
+  width: 350px;
+  /* height: 695px; */
+  background-color: #3a5bcd;
+}
+img {
+  width: 270px;
+  height: 280px;
+  border-radius: 25px;
+  margin: 17px;
+  box-shadow: -1px 2px 13px 12px rgba(34, 60, 80, 0.2);
+}
+.text {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+button {
+  color: white;
+  background-color: #3a5bcd;
+  width: 150px;
+  height: 40px;
+  border-radius: 15px;
+  border: 5px solid white;
+  font-size: 14px;
+  margin-left: 70px;
+}
