@@ -7,7 +7,7 @@ function Footer() {
         <div className={styles.footer}>
             <YMaps>
                 <div>
-                    <h1>Карта</h1>
+                    <h1 className={styles.footer__title}>Карта</h1>
                     <Map
                         width={"100%"}
                         height={"250px"}

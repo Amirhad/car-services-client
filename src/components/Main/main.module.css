@@ -1,19 +1,21 @@
-.input {
-    height: 255px;
-    width: 1920px;
-    background-color: #3a5bcd;
-    text-align: center;
-    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Roboto:wght@100&display=swap");
-    font-family: "Roboto", sans-serif;
-  }
-  input {
-    width: 1374px;
-    height: 81px;
-    border-radius: 19px;
-    font-size: 38px;
-  }
-  h1 {
-    font-size: 64px;
-    color: white;
-    padding-top: 10px;
-  }
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Roboto:wght@100&display=swap"); */
+
+.main__serch__form {
+  height: 255px;
+  width: 1920px;
+  background-color: #3a5bcd;
+  text-align: center;
+}
+
+.main__serch__form__input {
+  width: 1374px;
+  height: 81px;
+  border-radius: 19px;
+  font-size: 38px;
+}
+
+.main__serch__form__title {
+  font-size: 64px;
+  color: white;
+  padding-top: 10px;
+}
