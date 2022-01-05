@@ -4,12 +4,18 @@ import styles from './footer.module.css'
 
 function Footer() {
     return (
-        <YMaps>
-            <div>
-                <h1>Карта</h1>
-                <Map className={styles.map} defaultState={{center: [55.75, 37.57], zoom: 9}}></Map>
-            </div>
-        </YMaps>
+        <div className={styles.footer}>
+            <YMaps>
+                <div>
+                    <h1>Карта</h1>
+                    <Map
+                        width={"100%"}
+                        height={"250px"}
+                        defaultState={{ center: [55.75, 37.57], zoom: 9 }}></Map>
+                </div>
+            </YMaps>
+            <div className={styles.bgFooter}></div>
+        </div>
     )
 }
 export default Footer;
