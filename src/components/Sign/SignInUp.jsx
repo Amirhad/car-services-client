@@ -45,7 +45,7 @@ function SignInUp() {
           <DialogTitle id="form-dialog-title">Sign Up</DialogTitle>
           <DialogContent>
             <DialogContentText>log in to service</DialogContentText>
-            {/* <TextField 
+           {/*  { <TextField 
             autoFocus
             margin='dense'
             id='name'
@@ -60,7 +60,7 @@ function SignInUp() {
             label='Password'
             type='password'
             fullWidth
-            /> */}
+            /> } */}
             <input type="text"
               value={login}
               placeholder='Введите email'
