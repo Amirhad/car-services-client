@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.header {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+
+  /* background-color: #556983; */
+  background-image: url("../../assets/deed.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.header__main {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.header__row {
+  width: 680px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.header__row div {
+  margin-top: 30px;
+  font-size: 26px;
+  color: #ffffff;
+}
+
+.header__title {
+  width: 600px;
+  margin-top: 90px;
+
+}
+
+.header__title h1 {
+  color: #fff;
+  font-size: 68px;
+  margin-left: 60px;
+}
+
+.button-23 {
+  background-color: #3A5BCD;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  margin-left: 60px;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: 350px;
+  height: 65px;
+}
+
+.button-23:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow .2s;
+}
+
+.button-23:active {
+  background-color: #2743a8;
+  border-color: #000000;
+  transform: scale(.96);
+}
