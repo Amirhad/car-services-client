@@ -1,0 +1,15 @@
+.car-service {
+ width: 80%;
+  margin: auto;
+}
+.service-div-img {
+ width: 100%;
+ height: 600px;
+}
+.service-img {
+ width: 100%;
+ height: 100%;
+}
+.name-service {
+ font-family: Arial;
+}
