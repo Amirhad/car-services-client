@@ -96,8 +96,9 @@ export const createCarServices = () => {
     try {
       const res = await fetch('http://localhost:4000/carservice/register',{
         method: "POST",
-        body: JSON.stringify({})
       })
+    }catch (e) {
+      dispatch({type: 'carService/create/rejected', payload: e})
     }
   }
 }
