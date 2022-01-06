@@ -1,0 +1,37 @@
+.form {
+    text-align: center;
+}
+
+.form input {
+    width: 200px;
+    margin: 5px 0px;
+}
+
+.form a {
+    text-decoration: none;
+    color: #000;
+    margin-left: 5px;
+}
+
+.form a:hover {
+    color: rgb(209, 24, 24);
+}
+
+input {
+    outline: none;
+    border-radius: 3px;
+    border: 1px solid rgb(16, 149, 238);
+}
+
+button {
+    color: #fff;
+    background-color: #000;
+    border-radius: 5px;
+    border: none;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    color: rgb(209, 24, 24);
+}
