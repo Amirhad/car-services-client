@@ -19,7 +19,6 @@ function SignInUp() {
   }
   const handleLogin = (e) => {
     e.preventDefault()
-    console.log(123)
     navigate('/')
   }
 
@@ -30,12 +29,18 @@ function SignInUp() {
         <div>
           <input
             type="text"
+            placeholder="Name" />
+          <input 
+          type="text" 
+          placeholder='login'/>
+        </div>
+        <div>
+          <input
+            type="text"
             value={login}
             placeholder="Введите email"
             onChange={(e) => setLogin(e.target.value)}
           />
-        </div>
-        <div>
           <input
             type="text"
             value={password}
@@ -44,10 +49,21 @@ function SignInUp() {
           />
         </div>
         <div>
+          <input 
+          type="text" 
+          placeholder='city'/>
+          <input 
+          type="text" 
+          placeholder='street'/>
+        </div>
+        <div>
+          <input type="file" />
+        </div>
+        <div>
           <button
-          className={styles.btn}
-          // disabled={signinUp}
-          onClick={handleSubmit}>
+            className={styles.btn}
+            // disabled={signinUp}
+            onClick={handleSubmit}>
             Регистрация
           </button>
         </div>
