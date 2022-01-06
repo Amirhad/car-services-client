@@ -1,3 +1,7 @@
+body {
+  background-color: black;
+}
+
 .carts__container {
   width: 1240px;
   margin: 0 auto;
@@ -5,17 +9,17 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: forestgreen;
+  background-color: black;
 }
 
 .cart__body {
   position: relative;
   width: 350px;
-  height: 400px;
+  height: 360px;
   margin-top: 10px;
   margin-right: 10px;
   border-radius: 10px;
-  background: #3A5BCD;
+  background: #303030;
 }
 
 .cart__imageDiv {
@@ -41,19 +45,19 @@
 .cart__text p {
   color: aliceblue;
   font-size: 20px;
+  margin-bottom: 30px;
 }
 
 .button1 {
   position: relative;
   color: white;
-  font-weight: bold;
   text-decoration: none;
   text-shadow: -1px -1px #000;
   user-select: none;
   padding: .8em 2em;
   outline: none;
   border-radius: 5px;
-  background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255,255,255,.7) 0%, rgba(255,255,255,.5) 50%, rgba(0,0,0,0) 50%);
+  background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255, 255, 255, 0.315) 0%, rgba(255,255,255,.315) 50%, rgba(0,0,0,0) 50%);
   background-repeat: no-repeat;
   background-size: 200% 100%, auto;
   background-position: 200% 0, 0 0;

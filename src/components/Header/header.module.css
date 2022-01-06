@@ -20,6 +20,15 @@ a {
   background-position: center;
 }
 
+.signin {
+  position: absolute;
+  left: -350px;
+  border: 2px ivory solid;
+  border-radius: 8px;
+  padding: 0 8px;
+  line-height: 1.5;
+}
+
 .header__main {
   position: relative;
   width: 100%;
@@ -28,9 +37,11 @@ a {
 }
 
 .header__row {
+  position: relative;
   width: 680px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .header__row {
@@ -52,7 +63,7 @@ a {
 }
 
 .button_23 {
-  background-color: #3A5BCD;
+  background-color: #303030;
   border: 1px solid #222222;
   border-radius: 8px;
   box-sizing: border-box;
@@ -82,7 +93,7 @@ a {
 }
 
 .button_23:active {
-  background-color: #2743a8;
+  background-color: #30303093;
   border-color: #000000;
   transform: scale(.96);
 }
