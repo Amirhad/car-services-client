@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+  color: #fff;
+}
 
 .container {
   max-width: 1920px;
@@ -31,23 +35,23 @@
 
 .header__row {
   margin-top: 30px;
-  font-size: 26px;
+  font-size: 20px;
   color: #ffffff;
 }
 
 .header__title {
   width: 600px;
   margin-top: 90px;
-
+  line-height: 78px;
 }
 
 .header__title {
   color: #fff;
-  font-size: 68px;
+  font-size: 35px;
   margin-left: 60px;
 }
 
-.button-23 {
+.button_23 {
   background-color: #3A5BCD;
   border: 1px solid #222222;
   border-radius: 8px;
@@ -57,10 +61,8 @@
   display: inline-block;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
   font-size: 22px;
-  font-weight: 600;
   line-height: 20px;
   margin: 0;
-  margin-left: 60px;
   outline: none;
   padding: 13px 23px;
   position: relative;
@@ -74,12 +76,12 @@
   height: 65px;
 }
 
-.button-23:focus-visible {
+.button_23:focus-visible {
   box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
   transition: box-shadow .2s;
 }
 
-.button-23:active {
+.button_23:active {
   background-color: #2743a8;
   border-color: #000000;
   transform: scale(.96);

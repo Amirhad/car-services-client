@@ -7,15 +7,15 @@ const Header = () => {
       <div className={styles.header}>
         <div className={styles.header__main}>
           <div className={styles.header__row}>
-            <div>О нас</div>
-            <div>Контакты</div>
-            <div>FAQ</div>
-            <div>Карта</div>
+            <a href="#">О нас</a>
+            <a href="#">Контакты</a>
+            <a href="#">FAQ</a>
+            <a href="#">Карта</a>
           </div>
         </div>
         <div className={styles.header__title}>
           <h1>Подбирем автосервис для решения проблемы вашего авто</h1>
-          <button className={styles.button-23}>список автосервисов</button>
+          <button className={styles.button_23}>список автосервисов</button>
         </div>
       </div>
     </div>
