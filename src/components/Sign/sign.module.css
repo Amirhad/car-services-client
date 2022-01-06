@@ -1,9 +1,18 @@
+.form {
+    width: 450px;
+    margin: auto;
+    color: #fff;
+}
+
 .block {
     text-align: center;
+    border-radius: 10px;
+    background-color: rgba(135, 74, 150, 0.667);
 }
+
 .form input {
     width: 200px;
-    margin: 5px 0px;
+    margin: 5px 5px;
 }
 
 .form a {
@@ -18,7 +27,7 @@
 
 .form input {
     outline: none;
-    border-radius: 3px;
+    border-radius: 5px;
     border: 1px solid rgb(16, 149, 238);
 }
 
