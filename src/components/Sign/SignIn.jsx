@@ -28,7 +28,7 @@ function SignIn() {
           />
         </div>
         <div>
-          <button>Войти</button>
+          <button className={styles.btn}>Войти</button>
         </div>
         <span>У вас нет акаунта?</span>
         <Link to='/signup'>Регистрация</Link>
