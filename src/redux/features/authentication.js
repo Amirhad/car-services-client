@@ -1,7 +1,12 @@
+import { loadCarServices } from './carService';
+
 const initialState = {
   error: null,
   signingUp: false,
+  signingIn: false,
   token: null,
+  service: {},
+  id: localStorage.getItem("id")
 };
 
 export const authentication = (state = initialState, action) => {
@@ -23,18 +28,51 @@ export const authentication = (state = initialState, action) => {
         signingUp: false,
         error: action.error,
       };
+    case "authentication/signin/pending":
+      return {
+        ...state,
+        signingIn: true,
+        error: null
+      }
+    case "authentication/signin/fulfilled":
+      return {
+        ...state,
+        signingIn: false,
+        id: action.payload.json.id
+      }
+    case "authentication/signin/rejected":
+      return {
+        ...state,
+        signingIn: false,
+        error: action.error
+      }
+    case "authentication/logout/fulfilled":
+      return {
+        ...state,
+        token: null,
+        id: null
+      }
+
+    case "authentication/uploadImg/fulfilled":
+      return {
+        ...state,
+        service: {
+          ...state.service,
+          img: action.payload
+        }
+      }
     default:
       return state;
   }
 };
 
-export const createService = (login, password) => {
+export const createService = (login, password,name,img,city) => {
   return async (dispatch) => {
     dispatch({ type: "authentication/signup/pending" });
 
     const res = await fetch("http://localhost:4000/carservice/register", {
       method: "POST",
-      body: JSON.stringify({ login, password }),
+      body: JSON.stringify({ login, password, name, img, city}),
       headers: {
         "Content-type": "application/json",
       },
@@ -49,3 +87,48 @@ export const createService = (login, password) => {
     }
   };
 };
+
+export const logIn = (login,password) => {
+  return async (dispatch) => {
+    dispatch({ type: "authentication/signin/pending"})
+
+    const res = await fetch("http://localhost:4000/carservice/login", {
+      method: "POST",
+      body: JSON.stringify({
+        login,
+        password
+      }),
+      headers: {
+        "Content-type": "application/json"
+      }
+    })
+
+    const json = await res.json()
+    if(json.error) {
+      dispatch({type: "authentication/signin/rejected", error: json.error})
+    } else {
+      dispatch({
+        type: "authentication/signin/fulfilled",
+        payload: {json},
+      })
+      localStorage.setItem("id", json.id)
+    }
+  }
+}
+
+export const logOut = () => {
+  return async (dispatch)=> {
+    dispatch({type: "authentication/logout/fulfilled"})
+    localStorage.clear()
+  }
+}
+
+// export const uploadImg = (file) => {
+//   return async (dispatch) => {
+//     try {
+//       const form = new FormData()
+//       form.append("file", file)
+//       const response = await fetch('http://localhost:4000/carservice/register')
+//     }
+//   }
+// }
