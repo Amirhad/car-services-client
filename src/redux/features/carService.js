@@ -89,3 +89,16 @@ export const loadCarServices = () => {
     }
   }
 }
+
+export const createCarServices = () => {
+  return async (dispatch) => {
+    dispatch({type: 'carService/create/pending'});
+    try {
+      const res = await fetch('http://localhost:4000/carservice/register',{
+        method: "POST",
+      })
+    }catch (e) {
+      dispatch({type: 'carService/create/rejected', payload: e})
+    }
+  }
+}
