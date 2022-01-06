@@ -17,6 +17,11 @@
   border-radius: 10px;
   font-size: 28px;
   margin-top: 50px;
+  transition: width 0.4s ease-in-out;
+}
+
+.main__serch__form__input:focus {
+  width: 90%;
 }
 
 .main__serch__form__title {
@@ -27,10 +32,6 @@
   font-weight: normal;
 }
 
-input[type=text] {
+/* input[type=text] {
   transition: width 0.4s ease-in-out;
-}
-
-input[type=text]:focus {
-  width: 90%;
-}
+} */
