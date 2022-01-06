@@ -1,7 +1,6 @@
-.form {
+.block {
     text-align: center;
 }
-
 .form input {
     width: 200px;
     margin: 5px 0px;
@@ -17,13 +16,13 @@
     color: rgb(209, 24, 24);
 }
 
-input {
+.form input {
     outline: none;
     border-radius: 3px;
     border: 1px solid rgb(16, 149, 238);
 }
 
-button {
+.btn {
     color: #fff;
     background-color: #000;
     border-radius: 5px;
@@ -32,6 +31,6 @@ button {
     margin-bottom: 10px;
 }
 
-button:hover {
+.btn:hover {
     color: rgb(209, 24, 24);
 }

@@ -45,6 +45,7 @@ function SignInUp() {
         </div>
         <div>
           <button
+          className={styles.btn}
           // disabled={signinUp}
           onClick={handleSubmit}>
             Регистрация
