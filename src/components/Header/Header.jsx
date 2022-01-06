@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./header.module.css";
 
 const Header = () => {
@@ -7,10 +8,13 @@ const Header = () => {
       <div className={styles.header}>
         <div className={styles.header__main}>
           <div className={styles.header__row}>
-            <a href="#">О нас</a>
-            <a href="#">Контакты</a>
-            <a href="#">FAQ</a>
-            <a href="#">Карта</a>
+            <a className={styles.signin} href="/">
+              войти
+            </a>
+            <Link to="/about">О нас</Link>
+            <Link to="/contacts">Контакты</Link>
+            <Link to="/faq">FAQ</Link>
+            <Link to="/review">Отзывы</Link>
           </div>
         </div>
         <div className={styles.header__title}>
