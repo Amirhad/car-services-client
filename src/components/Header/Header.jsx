@@ -8,9 +8,9 @@ const Header = () => {
       <div className={styles.header}>
         <div className={styles.header__main}>
           <div className={styles.header__row}>
-            <a className={styles.signin} href="/">
+            <Link to='/signin' className={styles.signin}>
               войти
-            </a>
+            </Link>
             <Link to="/about">О нас</Link>
             <Link to="/contacts">Контакты</Link>
             <Link to="/faq">FAQ</Link>
