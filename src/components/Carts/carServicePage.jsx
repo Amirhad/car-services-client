@@ -23,14 +23,17 @@ const CarServicePage = () => {
   return (
     <div className={styles.bodyCar}>
       <div>
-        <button></button>
         <div className={styles.imageCar}>
           <div className={styles.nameCar}>{carService.name}</div>
+          <img src="https://www.sdeuropean.co.nz/edit/image_cache/shutterstock_7271708712_2000x1335c0pcenter.jpg" alt="" />
+          <div className={styles.shadow}></div>
         </div>
         <div>
 
           <div className={styles.addressBody}>
             <div className={styles.addressCard}>
+              <button className={styles.cardButton}><a href="/">На главную</a></button>
+              <hr />
               <h2>Адрес:</h2>
               <div className={styles.addressCar}>
                 <div className={styles.addressCarText}>
