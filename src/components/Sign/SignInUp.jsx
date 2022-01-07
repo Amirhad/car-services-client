@@ -10,17 +10,16 @@ function SignInUp() {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const [toLogin, setToLogin] = useState('')
+  const [login, setLogin] = useState('')
   const [name, setName] = useState('')
   const [city, setCity] = useState('')
   const [street, setStreet] = useState('')
-  const [login, setLogin] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [img, setImg] = useState('')
 
 
   const handleSubmit = () => {
-    dispatch(createService(login, password, toLogin, name, city, street, img))
+    dispatch(createService(email, password, login, name, city, street))
   }
   const handleLogin = (e) => {
     e.preventDefault()
@@ -28,7 +27,7 @@ function SignInUp() {
   }
 
   return (
-    <>
+    <div className={styles.bigBlock}>
       <form className={styles.form} onSubmit={handleLogin}>
         <div className={styles.block}>
           <h2>Авторизация</h2>
@@ -40,19 +39,19 @@ function SignInUp() {
               onChange={(e) => setName(e.target.value)} />
             <input
               type="text"
-              value={toLogin}
+              value={login}
               placeholder='login'
-              onChange={(e) => setToLogin(e.target.value)} />
+              onChange={(e) => setLogin(e.target.value)} />
           </div>
           <div>
             <input
               type="text"
-              value={login}
+              value={email}
               placeholder="Введите email"
-              onChange={(e) => setLogin(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
-              type="text"
+              type="password"
               value={password}
               placeholder="Введите пароль"
               onChange={(e) => setPassword(e.target.value)}
@@ -71,11 +70,6 @@ function SignInUp() {
               onChange={(e) => setStreet(e.target.value)} />
           </div>
           <div>
-            <input type="file"
-            value={img}
-            onChange={(e) => setImg(e.target.value)}/>
-          </div>
-          <div>
             <button
               className={styles.btn}
               disabled={signinUp}
@@ -87,7 +81,7 @@ function SignInUp() {
           <Link to='/signin'>Войти</Link>
         </div>
       </form>
-    </>
+    </div>
   );
 }
 

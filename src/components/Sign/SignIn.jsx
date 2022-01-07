@@ -37,7 +37,7 @@ function SignIn() {
         </div>
         <div>
           <input
-            type="text"
+            type="password"
             value={password}
             placeholder="Введите пароль"
             onChange={(e) => setPassword(e.target.value)}
