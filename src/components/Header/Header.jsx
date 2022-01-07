@@ -14,7 +14,7 @@ const Header = () => {
             <Link to="/about">О нас</Link>
             <Link to="/contacts">Контакты</Link>
             <Link to="/faq">FAQ</Link>
-            <Link to="/review">Отзывы</Link>
+            <Link to="/review">Игра</Link>
           </div>
         </div>
         <div className={styles.header__title}>
