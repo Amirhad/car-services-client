@@ -85,13 +85,13 @@ export const addAvatar = (file) => {
   };
 };
 
-export const createService = (login, password, name, img, city, email, street, number, phone) => {
+export const createService = (login, password, name, img, city, email, street, number, phone, text) => {
   return async (dispatch) => {
     dispatch({ type: "authentication/signup/pending" });
 
     const res = await fetch("http://localhost:4000/carservice/register", {
       method: "POST",
-      body: JSON.stringify({ login, password, name, city, email, street, number, phone }),
+      body: JSON.stringify({login, password, name, img, city, email, street, number, phone, text }),
       headers: {
         "Content-type": "application/json",
       },
