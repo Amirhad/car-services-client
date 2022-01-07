@@ -1,20 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./carService.module.css";
+import { loadCarServices } from '../../redux/features/carService';
 
 const CarServicePage = () => {
   const carServices = useSelector((state) => state.carService.carServices);
 
   const { id } = useParams();
+
   const carService = carServices.find((carService) => carService._id === id);
 
-  console.log(carService);
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(loadCarServices());
+  }, [dispatch])
+
+  if (!carServices.length) {
+    return 'загрузка';
+  }
   return (
     <div className={styles.bodyCar}>
       <div>
-        <div  iv className={styles.imageCar}>
+        <button></button>
+        <div className={styles.imageCar}>
           <div className={styles.nameCar}>{carService.name}</div>
         </div>
         <div>

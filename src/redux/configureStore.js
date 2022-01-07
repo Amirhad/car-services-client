@@ -9,6 +9,6 @@ const logger = createLogger({
   collapsed: true
 })
 
-const combineReducer = combineReducers({authentication,carService})
+const combineReducer = combineReducers({authentication,carService,})
 
 export const store = createStore(combineReducer,applyMiddleware(thunk, logger))
