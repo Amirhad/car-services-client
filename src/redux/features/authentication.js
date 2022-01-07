@@ -4,7 +4,7 @@ const initialState = {
   signingIn: false,
   token: null,
   service: {},
-  id: localStorage.getItem("id")
+  id: localStorage.getItem("id"),
 };
 
 export const authentication = (state = initialState, action) => {
@@ -30,47 +30,68 @@ export const authentication = (state = initialState, action) => {
       return {
         ...state,
         signingIn: true,
-        error: null
-      }
+        error: null,
+      };
     case "authentication/signin/fulfilled":
       return {
         ...state,
         signingIn: false,
-        id: action.payload.json.id
-      }
+        id: action.payload.json.id,
+      };
     case "authentication/signin/rejected":
       return {
         ...state,
         signingIn: false,
-        error: action.error
-      }
+        error: action.error,
+      };
     case "authentication/logout/fulfilled":
       return {
         ...state,
         token: null,
-        id: null
-      }
+        id: null,
+      };
 
-    case "authentication/uploadImg/fulfilled":
+    case "application/addAvatar/fullfilled":
       return {
         ...state,
-        service: {
-          ...state.service,
-          img: action.payload
-        }
-      }
+        user: {
+          ...state.user,
+          avatar: action.payload,
+        },
+      };
     default:
       return state;
   }
 };
 
-export const createService = (login, password,name,img,city) => {
+export const addAvatar = (file) => {
+  return async (dispatch) => {
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      const response = await fetch(`http://localhost:4000/carservice/avatar`, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      const json = await response.json();
+
+      dispatch({ type: "application/addAvatar/fullfilled", payload: json });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+};
+
+export const createService = (login, password, name, img, city) => {
   return async (dispatch) => {
     dispatch({ type: "authentication/signup/pending" });
 
     const res = await fetch("http://localhost:4000/carservice/register", {
       method: "POST",
-      body: JSON.stringify({ login, password, name, city}),
+      body: JSON.stringify({ login, password, name, city }),
       headers: {
         "Content-type": "application/json",
       },
@@ -86,47 +107,37 @@ export const createService = (login, password,name,img,city) => {
   };
 };
 
-export const logIn = (login,password) => {
+export const logIn = (login, password) => {
   return async (dispatch) => {
-    dispatch({ type: "authentication/signin/pending"})
+    dispatch({ type: "authentication/signin/pending" });
 
     const res = await fetch("http://localhost:4000/carservice/login", {
       method: "POST",
       body: JSON.stringify({
         login,
-        password
+        password,
       }),
       headers: {
-        "Content-type": "application/json"
-      }
-    })
+        "Content-type": "application/json",
+      },
+    });
 
-    const json = await res.json()
-    if(json.error) {
-      dispatch({type: "authentication/signin/rejected", error: json.error})
+    const json = await res.json();
+    if (json.error) {
+      dispatch({ type: "authentication/signin/rejected", error: json.error });
     } else {
       dispatch({
         type: "authentication/signin/fulfilled",
-        payload: {json},
-      })
-      localStorage.setItem("id", json.id)
+        payload: { json },
+      });
+      localStorage.setItem("id", json.id);
     }
-  }
-}
+  };
+};
 
 export const logOut = () => {
-  return async (dispatch)=> {
-    dispatch({type: "authentication/logout/fulfilled"})
-    localStorage.clear()
-  }
-}
-
-// export const uploadImg = (file) => {
-//   return async (dispatch) => {
-//     try {
-//       const form = new FormData()
-//       form.append("file", file)
-//       const response = await fetch('http://localhost:4000/carservice/register')
-//     }
-//   }
-// }
+  return async (dispatch) => {
+    dispatch({ type: "authentication/logout/fulfilled" });
+    localStorage.clear();
+  };
+};
