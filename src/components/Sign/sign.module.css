@@ -49,3 +49,8 @@
     cursor: pointer;
     background: -webkit-linear-gradient(left, #005bea, #00c6fb);
 }
+
+.textarea {
+    margin-top: 15px;
+    width: 250px;
+}
