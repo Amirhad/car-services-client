@@ -72,7 +72,7 @@ export const createService = (login, password,name,img,city) => {
 
     const res = await fetch("http://localhost:4000/carservice/register", {
       method: "POST",
-      body: JSON.stringify({ login, password, name, img, city}),
+      body: JSON.stringify({ login, password, name, city}),
       headers: {
         "Content-type": "application/json",
       },

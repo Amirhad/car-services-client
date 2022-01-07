@@ -9,6 +9,7 @@ import About from '../src/components/Header/links/About'
 import Contacts from '../src/components/Header/links/Contacts'
 import Faq from '../src/components/Header/links/Faq'
 import Reviews from '../src/components/Header/links/Reviews'
+import CarServicePage from './components/Carts/carServicePage';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path='/contacts' element={<Contacts />} />
           <Route path='/faq' element={<Faq />} />
           <Route path='/review' element={<Reviews />} />
+          <Route path='/card/:id' element={<CarServicePage/>}/>
         </Routes>
       </BrowserRouter>
     </Provider>

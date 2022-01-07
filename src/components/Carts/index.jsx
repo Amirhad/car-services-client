@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector,useDispatch } from "react-redux";
 import { loadCarServices } from "../../redux/features/carService";
 import styles from "./carts.module.css";
+import {Link} from 'react-router-dom';
 function Cart() {
 
   const dispatch = useDispatch()
@@ -10,7 +11,7 @@ function Cart() {
   useEffect(() =>{
     dispatch(loadCarServices())
   }, [dispatch])
-  const services = useSelector(state => state.carService.carServices)
+  const carServices = useSelector(state => state.carService.carServices)
 
   const [value, setValue] = useState('');
 
@@ -21,7 +22,7 @@ function Cart() {
   console.log(value);
   
 
-  const filtered = services.filter(services =>{
+  const filtered = carServices.filter(services =>{
     return services.name.toLowerCase().includes(value.toLowerCase())
   })
   return (<>
@@ -33,7 +34,7 @@ function Cart() {
       <div className={styles.carts__container} >
          {filtered.map((item) => {
         return(
-        <div className={styles.cart__body}>
+        <div className={styles.cart__body} key={item._id}>
           <div className={styles.cart__imageDiv}>
             <img
               className={styles.cart__image}
@@ -43,7 +44,7 @@ function Cart() {
           </div>
           <div className={styles.cart__text}>
             <div><p>г.{item.address.city} ул.{item.address.street} {item.address.number} | {item.phone}</p></div>
-            <a className={styles.button1} href="/">открыть</a>
+              <Link to={`/card/${item._id}`} className={styles.button1} >открыть</Link>
             <p>{item.name}</p>
           </div>
         </div>
