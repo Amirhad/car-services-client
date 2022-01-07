@@ -12,14 +12,14 @@ function SignInUp() {
   const dispatch = useDispatch()
   const navigate = useNavigate();
   
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [login, setLogin] = useState('')
   const [name, setName] = useState('')
   const [city, setCity] = useState('')
   const [street, setStreet] = useState('')
-  const [email, setEmail] = useState('')
   const [number, setNumber] = useState('')
   const [phone, setPhone] = useState('')
-  const [password, setPassword] = useState('')
   const [text, setText] = useState('')
   const [img, setImg] = useState('')
 
