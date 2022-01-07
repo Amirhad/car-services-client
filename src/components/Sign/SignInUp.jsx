@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import styles from './sign.module.css'
 import { Link, useNavigate } from 'react-router-dom';
+import TextField from '@mui/material/TextField';
 
 function SignInUp() {
 
@@ -15,6 +16,8 @@ function SignInUp() {
   const [city, setCity] = useState('')
   const [street, setStreet] = useState('')
   const [email, setEmail] = useState('')
+  const [number, setNumber] = useState('')
+  const [phone, setPhone] = useState('')
   const [password, setPassword] = useState('')
 
 
@@ -30,27 +33,31 @@ function SignInUp() {
     <div className={styles.bigBlock}>
       <form className={styles.form} onSubmit={handleLogin}>
         <div className={styles.block}>
-          <h2>Авторизация</h2>
-          <div>
-            <input
+          <h1>Регистрация</h1>
+          <div className={styles.inputTop}>
+            <TextField
+              id="standard-basic" label="name" variant="standard"
               type="text"
               value={name}
               placeholder="Name"
               onChange={(e) => setName(e.target.value)} />
-            <input
+            <TextField
+              id="standard-basic" label="login" variant="standard"
               type="text"
               value={login}
               placeholder='login'
               onChange={(e) => setLogin(e.target.value)} />
           </div>
           <div>
-            <input
+            <TextField
+              id="standard-basic" label="Email" variant="standard"
               type="text"
               value={email}
               placeholder="Введите email"
               onChange={(e) => setEmail(e.target.value)}
             />
-            <input
+            <TextField
+              id="standard-basic" label="password" variant="standard"
               type="password"
               value={password}
               placeholder="Введите пароль"
@@ -58,16 +65,34 @@ function SignInUp() {
             />
           </div>
           <div>
-            <input
+            <h2>Адрес</h2>
+            <TextField
+              id="standard-basic" label="city" variant="standard"
               type="text"
               value={city}
               placeholder='city'
               onChange={(e) => setCity(e.target.value)} />
-            <input
+            <TextField
+              id="standard-basic" label="street" variant="standard"
               type="text"
               value={street}
               placeholder='street'
               onChange={(e) => setStreet(e.target.value)} />
+            <TextField
+              id="standard-basic" label="number" variant="standard"
+              type="text"
+              value={number}
+              placeholder='number'
+              onChange={(e) => setNumber(e.target.value)} />
+          </div>
+          <div>
+            <h2>Номер телефона</h2>
+            <TextField
+              id="standard-basic" label="phone" variant="standard"
+              type="tel"
+              value={phone}
+              placeholder='phone'
+              onChange={(e) => setPhone(e.target.value)} />
           </div>
           <div>
             <button
