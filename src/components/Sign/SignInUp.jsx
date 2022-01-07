@@ -10,7 +10,8 @@ function SignInUp() {
   const signinUp = useSelector(state => state.authentication.signingUp)
 
   const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  
   const [login, setLogin] = useState('')
   const [name, setName] = useState('')
   const [city, setCity] = useState('')
@@ -19,21 +20,29 @@ function SignInUp() {
   const [number, setNumber] = useState('')
   const [phone, setPhone] = useState('')
   const [password, setPassword] = useState('')
+  const [text, setText] = useState('')
+  const [img, setImg] = useState('')
 
 
   const handleSubmit = () => {
-    dispatch(createService(email, password, login, name, city, street))
+    dispatch(createService(email, password, login, name, city, street, number, phone, text, img))
+    navigate('/signin')
+    
   }
   const handleLogin = (e) => {
     e.preventDefault()
-    navigate('/')
   }
 
   return (
-    <div className={styles.bigBlock}>
       <form className={styles.form} onSubmit={handleLogin}>
         <div className={styles.block}>
           <h1>Регистрация</h1>
+          <div>
+            <input
+            value={img}
+            onChange={(e) => setImg(e.target.value)}
+            type="file" />
+          </div>
           <div className={styles.inputTop}>
             <TextField
               id="standard-basic" label="name" variant="standard"
@@ -95,6 +104,16 @@ function SignInUp() {
               onChange={(e) => setPhone(e.target.value)} />
           </div>
           <div>
+            <textarea
+              className={styles.textarea}
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              name=""
+              id=""
+              cols="30"
+              rows="10">напишите текст</textarea>
+          </div>
+          <div>
             <button
               className={styles.btn}
               disabled={signinUp}
@@ -106,7 +125,6 @@ function SignInUp() {
           <Link to='/signin'>Войти</Link>
         </div>
       </form>
-    </div>
   );
 }
 
