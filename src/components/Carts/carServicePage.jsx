@@ -9,8 +9,6 @@ const CarServicePage = () => {
   const { id } = useParams();
   const carService = carServices.find((carService) => carService._id === id);
 
-  console.log(carService);
-
   return (
     <div className={styles.bodyCar}>
       <div>
