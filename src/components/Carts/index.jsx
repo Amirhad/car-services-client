@@ -12,6 +12,7 @@ function Cart() {
     dispatch(loadCarServices())
   }, [dispatch])
   const carServices = useSelector(state => state.carService.carServices)
+  const error = useSelector(state => state.carService.error)
 
   const [value, setValue] = useState('');
 
@@ -32,7 +33,7 @@ function Cart() {
   </div>
           
       <div className={styles.carts__container} >
-         {filtered.map((item) => {
+         {error ? 'возникла ошибка' : filtered.map((item) => {
         return(
         <div className={styles.cart__body} key={item._id}>
           <div className={styles.cart__imageDiv}>
