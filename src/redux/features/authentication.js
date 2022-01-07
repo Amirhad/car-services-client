@@ -1,5 +1,3 @@
-import { loadCarServices } from './carService';
-
 const initialState = {
   error: null,
   signingUp: false,

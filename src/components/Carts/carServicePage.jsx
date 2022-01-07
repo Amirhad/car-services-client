@@ -19,9 +19,14 @@ const CarServicePage = () => {
   return (
     <div className='car-service'>
       <div className='service-div-img'>
-        <div style={{color:'white'}}>{carService.name}</div>
+        <div>{carService.img}</div>
       </div>
       <div>{carService.name}</div>
+      <div>{carService.text}</div>
+      <div>{carService.address}</div>
+      <div>{carService.phone}</div>
+      <div>{carService.email}</div>
+
     </div>
   );
 };
