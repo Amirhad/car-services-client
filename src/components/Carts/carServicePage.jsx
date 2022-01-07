@@ -1,20 +1,25 @@
 import React from 'react';
-import 'carService.module.css'
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-const carServices = useSelector(state => state.carServices)
+
 
 const CarServicePage = () => {
+
+  const carServices = useSelector(state => state.carService.carServices)
+
   const {id} = useParams()
   const carService = carServices.find(carService => carService._id === id)
 
 
+  if(carService) {
+    console.log(1)
+  }
 
   return (
     <div className='car-service'>
       <div className='service-div-img'>
-        <img src={carService.img}  className='service-img'/>
+        <div style={{color:'white'}}>{carService.name}</div>
       </div>
       <div>{carService.name}</div>
     </div>
