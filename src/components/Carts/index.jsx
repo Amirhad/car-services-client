@@ -18,8 +18,6 @@ function Cart() {
     setValue(text);
   };
 
-  console.log(value);
-
   const filtered = carServices.filter((services) => {
     return services.name.toLowerCase().includes(value.toLowerCase());
   });
@@ -46,7 +44,7 @@ function Cart() {
                   <div className={styles.cart__imageDiv}>
                     <img
                       className={styles.cart__image}
-                      src={item.img}
+                      src={`http://localhost:4000/${item.img}`}
                       alt="service"
                     />
                   </div>
@@ -62,7 +60,6 @@ function Cart() {
                     <Link to={`/card/${item._id}`} className={styles.button1}>
                       открыть
                     </Link>
-                   
                   </div>
                 </div>
               );

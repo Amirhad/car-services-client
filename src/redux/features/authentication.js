@@ -2,7 +2,7 @@ const initialState = {
   error: null,
   signingUp: false,
   signingIn: false,
-  token: null,
+  token: localStorage.getItem("token"),
   service: {},
   id: localStorage.getItem("id"),
 };
@@ -48,41 +48,11 @@ export const authentication = (state = initialState, action) => {
       return {
         ...state,
         token: null,
-        id: null,
-      };
+      }
 
-    case "application/addAvatar/fullfilled":
-      return {
-        ...state,
-        user: {
-          ...state.user,
-          avatar: action.payload,
-        },
-      };
     default:
       return state;
   }
-};
-
-export const addAvatar = (file) => {
-  return async (dispatch) => {
-    try {
-      const formData = new FormData();
-      formData.append("file", file);
-      const response = await fetch(`http://localhost:4000/carservice/avatar`, {
-        method: "POST",
-        body: formData,
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
-      const json = await response.json();
-
-      dispatch({ type: "application/addAvatar/fullfilled", payload: json });
-    } catch (e) {
-      console.log(e);
-    }
-  };
 };
 
 export const createService = (email, password, login, name, city, street, number, phone, text, img) => {
@@ -98,7 +68,6 @@ export const createService = (email, password, login, name, city, street, number
     });
 
     const json = await res.json();
-
     if (json.error) {
       dispatch({ type: "authentication/signup/rejected", error: json.error });
     } else {
@@ -123,6 +92,7 @@ export const logIn = (login, password) => {
     });
 
     const json = await res.json();
+
     if (json.error) {
       dispatch({ type: "authentication/signin/rejected", error: json.error });
     } else {
@@ -130,7 +100,7 @@ export const logIn = (login, password) => {
         type: "authentication/signin/fulfilled",
         payload: { json },
       });
-      localStorage.setItem("id", json.id);
+      localStorage.setItem("token", json.token);
     }
   };
 };
