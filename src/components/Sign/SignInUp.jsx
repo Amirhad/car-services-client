@@ -158,4 +158,4 @@ function SignInUp() {
   );
 }
 
-export default SignInUp;
+export default SignInUp
