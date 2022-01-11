@@ -20,9 +20,10 @@ function SignInUp() {
   const [number, setNumber] = useState("");
   const [phone, setPhone] = useState("");
   const [text, setText] = useState("");
-  
+
 
   const handleSubmit = () => {
+
     dispatch(
       createService(
         email,
@@ -34,7 +35,7 @@ function SignInUp() {
         number,
         phone,
         text,
-        
+
       )
     );
     navigate("/signin");
@@ -43,7 +44,7 @@ function SignInUp() {
     e.preventDefault();
   };
 
- 
+
   return (
     <div className={styles.form} onSubmit={handleLogin}>
       <div className={styles.block}>
@@ -145,7 +146,16 @@ function SignInUp() {
         <div>
           <button
             className={styles.btn}
-            disabled={signinUp}
+            disabled={signinUp ||
+              !email ||
+              !password ||
+              !login ||
+              !name ||
+              !city ||
+              !street ||
+              !number ||
+              !phone ||
+              !text}
             onClick={handleSubmit}
           >
             Регистрация

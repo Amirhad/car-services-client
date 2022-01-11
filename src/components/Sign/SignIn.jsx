@@ -1,5 +1,5 @@
 import { logIn } from "../../redux/features/authentication";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./sign.module.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,15 +13,39 @@ function SignIn() {
 
   const [tologin, setToLogin] = useState("");
   const [password, setPassword] = useState("");
+  const [formError, setFormError] = useState({})
   const navigate = useNavigate();
 
   const handleSubmit = () => {
     dispatch(logIn(tologin, password));
   };
+  
+  if(token) {
+    return navigate('/')
+  }
 
   const handleLogin = (e) => {
     e.preventDefault();
+    setFormError(validate(tologin))
   };
+
+  const validate = (values) => {
+    const errors = {}
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if (!values.toLogin) {
+      errors.toLogin = 'email is required'
+    }
+    else if (!regex.test(values.toLogin)) {
+      errors.toLogin = "This is not a valid email format!";
+    } if (!values.password) {
+      errors.password = 'required is password'
+    } else if (values.password.length < 5) {
+      errors.password = 'password must be more than five characters'
+    }
+    return errors
+  }
+
+
 
   return (
     <form className={styles.form} onSubmit={handleLogin}>
@@ -53,7 +77,7 @@ function SignIn() {
         <div>
           <button
             className={styles.btn}
-            disabled={signIn}
+            disabled={!tologin || !password || signIn}
             onClick={handleSubmit}
           >
             Войти
