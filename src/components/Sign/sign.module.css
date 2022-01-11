@@ -63,7 +63,9 @@
     margin-top: 15px;
     width: 600px;
 }
-
+.error {
+    color: red;
+}
 .error__authorization {
     color: red;
 }
