@@ -4,10 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./carService.module.css";
 import { loadCarServices, uploadAvatar } from "../../redux/features/carService";
 import { Map, Placemark, YMaps } from "react-yandex-maps";
+import inputIcon from "../../assets/input__file__icon.png";
 
 const CarServicePage = () => {
   const carServices = useSelector((state) => state.carService.carServices);
   const token = useSelector((state) => state.authentication.token);
+  const carServiceId = useSelector((state) => state.authentication.id);
   const dispatch = useDispatch();
   const { id } = useParams();
 
@@ -30,14 +32,27 @@ const CarServicePage = () => {
       <div>
         <div className={styles.imageCar}>
           <div className={styles.nameCar}>
-            <div className={styles.mright}>{carService.name}{" "}</div>
-            {!token ? null : (
+            <div className={styles.mright}>{carService.name} </div>
+            {carServiceId !== carService._id ? null : !token ? null : (
               <div class="input__wrapper">
-              <input onChange={(e) => handleChangeImg(e)} name="file" type="file" id="input__file" className={`${styles.input} ${styles.input__file}`} multiple/>
-              <label for="input__file" className={styles.input__file_button}>
-                 <span className={styles.input__file_button_text}><img className={styles.input__file_icon_wrapper} src="https://3.downloader.disk.yandex.ru/preview/b4f07e3d3e6bd96f480aa142c4c652a67768b6cda1c9d60f58b9b1e301879c8f/inf/v2RiSlko5a8MgTp7wNdtp7cQX46w4z9JMbajfeJ52JJ763nvPURe5PBhlhASaOY-OUp0xdk172_-wBGqLSEDYg%3D%3D?uid=477299437&filename=photo%20копия.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=477299437&tknv=v2&size=1898x937" alt="" /></span>
-              </label>
-           </div>
+                <input
+                  onChange={(e) => handleChangeImg(e)}
+                  name="file"
+                  type="file"
+                  id="input__file"
+                  className={`${styles.input} ${styles.input__file}`}
+                  multiple
+                />
+                <label for="input__file" className={styles.input__file_button}>
+                  <span className={styles.input__file_button_text}>
+                    <img
+                      className={styles.input__file_icon_wrapper}
+                      src={inputIcon}
+                      alt=""
+                    />
+                  </span>
+                </label>
+              </div>
             )}
           </div>
           {carService.img ? (

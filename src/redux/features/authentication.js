@@ -102,6 +102,7 @@ export const logIn = (login, password) => {
         payload: { json },
       });
       localStorage.setItem("token", json.token);
+      localStorage.setItem("id", json.id);
     }
   };
 };
