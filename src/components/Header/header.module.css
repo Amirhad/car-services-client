@@ -102,3 +102,24 @@ a {
   border-color: #000000;
   transform: scale(.96);
 }
+
+.loading {
+  margin: auto;
+  /* Here we declare our inline animation */
+  animation: rotate 3s linear infinite;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 30px;
+  margin-right: 50px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
