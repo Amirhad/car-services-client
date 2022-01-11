@@ -11,7 +11,7 @@ function Footer() {
                     <Map
                         width={"100%"}
                         height={"250px"}
-                        defaultState={{ center: [55.75, 37.57], zoom: 9 }}></Map>
+                        defaultState={{ center: [43.318369, 45.692419], zoom: 9 }}></Map>
                 </div>
             </YMaps>
             <div className={styles.bgFooter}></div>

@@ -3,14 +3,15 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./carService.module.css";
 import { loadCarServices, uploadAvatar } from "../../redux/features/carService";
+import { Map, YMaps } from "react-yandex-maps";
 
 const CarServicePage = () => {
   const carServices = useSelector((state) => state.carService.carServices);
-  const token = useSelector(state => state.authentication.token)
+  const token = useSelector((state) => state.authentication.token);
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  const carService = carServices.find(carService => carService._id === id)
+  const carService = carServices.find((carService) => carService._id === id);
 
   useEffect(() => {
     dispatch(loadCarServices());
@@ -40,11 +41,13 @@ const CarServicePage = () => {
           )}
           <div className={styles.shadow}></div>
         </div>
-        {!token ? null :<input
-          onChange={(e) => handleChangeImg(e)}
-          type="file"
-          placeholder="загрузить аватар"
-        />}
+        {!token ? null : (
+          <input
+            onChange={(e) => handleChangeImg(e)}
+            type="file"
+            placeholder="загрузить аватар"
+          />
+        )}
         <div>
           <div className={styles.addressBody}>
             <div className={styles.addressCard}>
@@ -80,6 +83,15 @@ const CarServicePage = () => {
           </div>
         </div>
       </div>
+      <YMaps>
+        <div>
+          <Map
+            width={"100%"}
+            height={"250px"}
+            defaultState={{ center: [43.318369, 45.692419], zoom: 9 }}
+          ></Map>
+        </div>
+      </YMaps>
     </div>
   );
 };
