@@ -1,21 +1,25 @@
-import React from 'react'
-import { YMaps, Map } from 'react-yandex-maps';
-import styles from './footer.module.css'
+import React from "react";
+import { YMaps, Map, Placemark } from "react-yandex-maps";
+import styles from "./footer.module.css";
 
 function Footer() {
-    return (
-        <div className={styles.footer}>
-            <YMaps>
-                <div>
-                    <h1 className={styles.footer__title}>Карта</h1>
-                    <Map
-                        width={"100%"}
-                        height={"250px"}
-                        defaultState={{ center: [43.318369, 45.692419], zoom: 9 }}></Map>
-                </div>
-            </YMaps>
-            <div className={styles.bgFooter}></div>
+  return (
+    <div className={styles.footer}>
+      <YMaps>
+        <div>
+          <Map
+            width={"100%"}
+            height={"300px"}
+            defaultState={{ center: [43.318369, 45.692419], zoom: 11 }}
+          >
+            <Placemark geometry={[43.318369, 45.692419]} />
+            <Placemark geometry={[43.292665, 45.867438]} />
+            <Placemark geometry={[43.351882, 46.103535]} />
+          </Map>
         </div>
-    )
+      </YMaps>
+      <div className={styles.bgFooter}></div>
+    </div>
+  );
 }
 export default Footer;
