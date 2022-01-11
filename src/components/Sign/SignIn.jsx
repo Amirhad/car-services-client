@@ -21,7 +21,7 @@ function SignIn() {
   };
   
   if(token) {
-    return navigate('/')
+    navigate('/')
   }
 
   const handleLogin = (e) => {

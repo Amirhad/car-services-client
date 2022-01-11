@@ -69,3 +69,7 @@
 .error__authorization {
     color: red;
 }
+
+.NoEmpty {
+    color: green;
+}

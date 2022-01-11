@@ -37,6 +37,7 @@ export const authentication = (state = initialState, action) => {
         ...state,
         signingIn: false,
         id: action.payload.json.id,
+        token: action.payload.json.token,
       };
     case "authentication/signin/rejected":
       return {
