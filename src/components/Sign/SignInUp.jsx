@@ -2,6 +2,7 @@ import { createService } from "../../redux/features/authentication";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./sign.module.css";
+import ReactPhoneInput from 'react-phone-input-material-ui';
 import { Link, useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 
@@ -74,7 +75,7 @@ function SignInUp() {
             id="standard-basic"
             label="Email"
             variant="standard"
-            type="text"
+            type="email"
             value={email}
             placeholder="Введите email"
             onChange={(e) => setEmail(e.target.value)}
@@ -113,7 +114,7 @@ function SignInUp() {
             id="standard-basic"
             label="number"
             variant="standard"
-            type="text"
+            type="number"
             value={number}
             placeholder="number"
             onChange={(e) => setNumber(e.target.value)}
