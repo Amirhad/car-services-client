@@ -29,8 +29,17 @@ const CarServicePage = () => {
     <div className={styles.bodyCar}>
       <div>
         <div className={styles.imageCar}>
-          <div className={styles.nameCar}>{carService.name}</div>
-
+          <div className={styles.nameCar}>
+            <div className={styles.mright}>{carService.name}{" "}</div>
+            {!token ? null : (
+              <div class="input__wrapper">
+              <input onChange={(e) => handleChangeImg(e)} name="file" type="file" id="input__file" className={`${styles.input} ${styles.input__file}`} multiple/>
+              <label for="input__file" className={styles.input__file_button}>
+                 <span className={styles.input__file_button_text}><img className={styles.input__file_icon_wrapper} src="https://3.downloader.disk.yandex.ru/preview/b4f07e3d3e6bd96f480aa142c4c652a67768b6cda1c9d60f58b9b1e301879c8f/inf/v2RiSlko5a8MgTp7wNdtp7cQX46w4z9JMbajfeJ52JJ763nvPURe5PBhlhASaOY-OUp0xdk172_-wBGqLSEDYg%3D%3D?uid=477299437&filename=photo%20копия.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=477299437&tknv=v2&size=1898x937" alt="" /></span>
+              </label>
+           </div>
+            )}
+          </div>
           {carService.img ? (
             <img src={`http://localhost:4000/${carService.img}`} alt="avatar" />
           ) : (
@@ -41,13 +50,6 @@ const CarServicePage = () => {
           )}
           <div className={styles.shadow}></div>
         </div>
-        {!token ? null : (
-          <input
-            onChange={(e) => handleChangeImg(e)}
-            type="file"
-            placeholder="загрузить аватар"
-          />
-        )}
         <div>
           <div className={styles.addressBody}>
             <div className={styles.addressCard}>
@@ -87,12 +89,10 @@ const CarServicePage = () => {
         <div>
           <Map
             width={"100%"}
-            height={"250px"}
+            height={"300px"}
             defaultState={{ center: [43.318369, 45.692419], zoom: 11 }}
           >
-            <Placemark
-            geometry={[43.318369, 45.692419]}
-            />
+            <Placemark geometry={[43.318369, 45.692419]} />
           </Map>
         </div>
       </YMaps>
