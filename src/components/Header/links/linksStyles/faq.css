@@ -1,0 +1,68 @@
+.container {
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* background-image: url(https://autorating.ru/upload/medialibrary/a85/a85e2bc1aae5488a86bbb2e7cc7d4318.jpg); */
+  background-image: url(https://img.youscreen.ru/wall/14977639256937/14977639256937_1920x1200.jpg);
+  background-size: cover;
+}
+
+/* .container {
+  max-width: 600px;
+  margin: auto;
+  margin-top: 30px;
+  background-color: #fff;
+} */
+
+.container::-webkit-scrollbar, .items::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent;
+}
+
+.container, .items {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.items {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  cursor: pointer;
+  overflow-x: scroll;
+}
+
+.items div > div {
+  margin-left: 20px;
+}
+
+.item {
+  border-radius: 10px;
+  border: 1px solid gray;
+  min-width: 250px;
+  width: 250px !important;
+  margin-left: 20px;
+  margin-top: 20px;
+  text-align: center;
+  background-color: rgb(22, 22, 22);
+}
+
+.item h2, p {
+  color: rgb(255, 255, 255);
+}
+
+.main {
+  width: 100%;
+  height: 550px;
+  background-color: rgb(124, 55, 55);
+}
+
+.text {
+  position: absolute;
+  width: 100%;
+  height: 500px;
+  background-color: #fff;
+  top: 200px;
+  text-align: center;
+}
