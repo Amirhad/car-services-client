@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { logOut } from "../../redux/features/authentication";
 import styles from "./header.module.css";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll";
 
 const Header = () => {
   const token = useSelector((state) => state.authentication.token);
@@ -16,6 +16,7 @@ const Header = () => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
+        <div className={styles.loading}><img width={100} src="https://w7.pngwing.com/pngs/681/306/png-transparent-audi-a7-wheel-audi-rs7-car-audi-car-black-auto-part.png" alt="" /></div>
         <div className={styles.header__main}>
           <div className={styles.header__row}>
             {!token ? (
@@ -27,7 +28,6 @@ const Header = () => {
                 Выйти
               </button>
             )}
-
             <NavLink to="/about">О нас</NavLink>
             <NavLink to="/contacts">Контакты</NavLink>
             <NavLink to="/faq">FAQ</NavLink>
