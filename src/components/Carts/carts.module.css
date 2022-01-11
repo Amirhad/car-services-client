@@ -1,15 +1,16 @@
 body {
-  background-color: black;
+  background-color: #000;
 }
 
 .carts__container {
-  width: 1240px;
+  width: 100%;
   margin: 0 auto;
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: black;
+  background-image: url(https://img.8wallpapers.com/uploads/2021/06/eea61f12ee784411af250be9.jpg);
+  background-size: cover;
 }
 
 .cart__body {
@@ -25,7 +26,7 @@ body {
 
 .cart__body:hover {
   box-shadow: rgba(99, 99, 99, 0.308) 0 8px 15px;
-  background-color: #424242;
+  background-color: #424242d8;
   transform: translateY(-6px);
 }
 

@@ -123,3 +123,30 @@ a {
     transform: rotate(360deg);
   }
 }
+
+/* .headerAnimation {
+  background: linear-gradient(90deg, #000, #fff, #000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position-x: -500%;
+  }
+  100% {
+    background-position-x: 500%;
+  }
+} */
+
+.headerAnimation {
+  background-image: url(https://media.giphy.com/media/LSthRvbIZidCJNYD2k/giphy.gif);
+	background-size: cover;
+	color: transparent;
+	background-clip: text;
+  font-size: 92px;
+}
