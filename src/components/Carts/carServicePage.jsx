@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./carService.module.css";
 import { loadCarServices, uploadAvatar } from "../../redux/features/carService";
-import { Map, YMaps } from "react-yandex-maps";
+import { Map, Placemark, YMaps } from "react-yandex-maps";
 
 const CarServicePage = () => {
   const carServices = useSelector((state) => state.carService.carServices);
@@ -88,8 +88,12 @@ const CarServicePage = () => {
           <Map
             width={"100%"}
             height={"250px"}
-            defaultState={{ center: [43.318369, 45.692419], zoom: 9 }}
-          ></Map>
+            defaultState={{ center: [43.318369, 45.692419], zoom: 11 }}
+          >
+            <Placemark
+            geometry={[43.318369, 45.692419]}
+            />
+          </Map>
         </div>
       </YMaps>
     </div>
