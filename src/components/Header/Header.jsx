@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink  } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { logOut } from "../../redux/features/authentication";
 import styles from "./header.module.css";
-import {Link, animateScroll as scroll} from 'react-scroll'
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const Header = () => {
   const token = useSelector((state) => state.authentication.token);
@@ -23,11 +23,8 @@ const Header = () => {
                 <NavLink to="/signin">Войти</NavLink>
               </button>
             ) : (
-              <button 
-              className={styles.signin} 
-              onClick={handleClickLogout}
-              > 
-              Выйти 
+              <button className={styles.signin} onClick={handleClickLogout}>
+                Выйти
               </button>
             )}
 
@@ -39,7 +36,11 @@ const Header = () => {
         </div>
         <div className={styles.header__title}>
           <h1>Подбирем автосервис для решения проблемы вашего авто</h1>
-          <button className={styles.button_23}><Link to="carts" smooth={true} duration={700}>список автосервисов</Link></button>
+          <button className={styles.button_23}>
+            <Link to="carts" smooth={true} duration={700}>
+              список автосервисов
+            </Link>
+          </button>
         </div>
       </div>
     </div>
