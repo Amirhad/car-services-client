@@ -22,7 +22,7 @@ function Cart() {
     return services.name.toLowerCase().includes(value.toLowerCase());
   });
   return (
-    <>
+    <div id="carts">
       <div className={styles.main__serch__form}>
         <h1 className={styles.main__serch__form__title}>Поиск автосервиса</h1>
         <div>
@@ -65,7 +65,7 @@ function Cart() {
               );
             })}
       </div>
-    </>
+    </div>
   );
 }
 
