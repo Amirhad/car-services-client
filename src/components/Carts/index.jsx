@@ -42,11 +42,19 @@ function Cart() {
               return (
                 <div className={styles.cart__body} key={item._id}>
                   <div className={styles.cart__imageDiv}>
-                    <img
+                    {item.img ? (
+                      <img
+                        className={styles.cart__image}
+                        src={`http://localhost:4000/${item.img}`}
+                        alt="service"
+                      />
+                    ) : (
+                      <img
                       className={styles.cart__image}
-                      src={`http://localhost:4000/${item.img}`}
-                      alt="service"
-                    />
+                        src="https://www.sdeuropean.co.nz/edit/image_cache/shutterstock_7271708712_2000x1335c0pcenter.jpg"
+                        alt=""
+                      />
+                    )}
                   </div>
                   <div className={styles.cart__text}>
                     <div>
