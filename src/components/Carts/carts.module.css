@@ -4,13 +4,17 @@ body {
 
 .carts__container {
   width: 100%;
+  background-image: url(https://img.8wallpapers.com/uploads/2021/06/eea61f12ee784411af250be9.jpg);
+  background-size: cover;
+}
+
+.container__2 {
+  max-width: 80%;
   margin: 0 auto;
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-image: url(https://img.8wallpapers.com/uploads/2021/06/eea61f12ee784411af250be9.jpg);
-  background-size: cover;
 }
 
 .cart__body {
