@@ -32,8 +32,7 @@ const CarServicePage = () => {
       <div>
         <div className={styles.imageCar}>
           <div className={styles.nameCar}>
-            <div className={styles.mright}>{carService.name} </div>
-            {carServiceId !== carService._id ? null : !token ? null : (
+            <div className={styles.mright}>{carService.name} {carServiceId !== carService._id ? null : !token ? null : (
               <div class="input__wrapper">
                 <input
                   onChange={(e) => handleChangeImg(e)}
@@ -53,7 +52,8 @@ const CarServicePage = () => {
                   </span>
                 </label>
               </div>
-            )}
+            )}  </div>
+            
           </div>
           {carService.img ? (
             <img src={`http://localhost:4000/${carService.img}`} alt="avatar" />
