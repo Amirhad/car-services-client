@@ -77,14 +77,14 @@ export const createService = (email, password, name, city, street, number, phone
   };
 };
 
-export const logIn = (login, password) => {
+export const logIn = (email, password) => {
   return async (dispatch) => {
     dispatch({ type: "authentication/signin/pending" });
 
     const res = await fetch("http://localhost:4000/carservice/login", {
       method: "POST",
       body: JSON.stringify({
-        login,
+        email,
         password,
       }),
       headers: {

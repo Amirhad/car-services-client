@@ -94,7 +94,7 @@ export const uploadAvatar = (file, id) => {
     try {
       const formData = new FormData();
       formData.append("img", file);
-      const res = await fetch(`http://localhost:4000/carservice/${id}/avatar`, {
+      const res = await fetch(`http://localhost:4000/carservice/avatar/${id}`, {
         method: "PATCH",
         body: formData,
         headers: {
