@@ -32,8 +32,9 @@ const CarServicePage = () => {
       <div>
         <div className={styles.imageCar}>
           <div className={styles.nameCar}>
-            <div className={styles.mright}>{carService.name} {carServiceId !== carService._id ? null : !token ? null : (
-              <div class="input__wrapper">
+            <div className={styles.mright}>{carService.name} </div>
+            {carServiceId !== carService._id ? null : !token ? null : (
+              <div className={styles.input__wrapper}>
                 <input
                   onChange={(e) => handleChangeImg(e)}
                   name="file"
@@ -42,7 +43,7 @@ const CarServicePage = () => {
                   className={`${styles.input} ${styles.input__file}`}
                   multiple
                 />
-                <label for="input__file" className={styles.input__file_button}>
+                <label htmlFor="input__file" className={styles.input__file_button}>
                   <span className={styles.input__file_button_text}>
                     <img
                       className={styles.input__file_icon_wrapper}
@@ -52,8 +53,7 @@ const CarServicePage = () => {
                   </span>
                 </label>
               </div>
-            )}  </div>
-            
+            )}
           </div>
           {carService.img ? (
             <img src={`http://localhost:4000/${carService.img}`} alt="avatar" />
