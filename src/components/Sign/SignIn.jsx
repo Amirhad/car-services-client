@@ -11,12 +11,12 @@ function SignIn() {
   const token = useSelector((state) => state.authentication.token);
   const dispatch = useDispatch();
 
-  const [tologin, setToLogin] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    dispatch(logIn(tologin, password));
+    dispatch(logIn(email, password));
   };
 
   if (token) {
@@ -44,9 +44,9 @@ function SignIn() {
               label="email"
               variant="standard"
               type="email"
-              value={tologin}
+              value={email}
               placeholder="Введите email"
-              onChange={(e) => setToLogin(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div>
@@ -63,7 +63,7 @@ function SignIn() {
           <div>
             <button
               className={styles.btn}
-              disabled={!tologin || !password || signIn}
+              disabled={!email || !password || signIn}
               onClick={handleSubmit}
             >
               Войти
