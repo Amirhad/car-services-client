@@ -56,13 +56,13 @@ export const authentication = (state = initialState, action) => {
   }
 };
 
-export const createService = (email, password, login, name, city, street, number, phone, text, img) => {
+export const createService = (email, password, name, city, street, number, phone, text, img) => {
   return async (dispatch) => {
     dispatch({ type: "authentication/signup/pending" });
 
     const res = await fetch("http://localhost:4000/carservice/register", {
       method: "POST",
-      body: JSON.stringify({ email, password, login, name, city, street, number, phone, text, img }),
+      body: JSON.stringify({ email, password, name, city, street, number, phone, text, img }),
       headers: {
         "Content-type": "application/json",
       },
@@ -77,14 +77,14 @@ export const createService = (email, password, login, name, city, street, number
   };
 };
 
-export const logIn = (login, password) => {
+export const logIn = (email, password) => {
   return async (dispatch) => {
     dispatch({ type: "authentication/signin/pending" });
 
     const res = await fetch("http://localhost:4000/carservice/login", {
       method: "POST",
       body: JSON.stringify({
-        login,
+        email,
         password,
       }),
       headers: {
