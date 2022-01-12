@@ -36,7 +36,7 @@ const Header = () => {
           </div>
         </div>
         <div className={styles.header__title}>
-          <h1>Подбирем автосервис для решения проблемы вашего авто</h1>
+          <h1 className={styles.headerAnimation}>Подберем автосервис для решения проблемы вашего авто</h1>
           <button className={styles.button_23}>
             <Link to="carts" smooth={true} duration={700}>
               список автосервисов
