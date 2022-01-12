@@ -13,7 +13,6 @@ function SignInUp() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [login, setLogin] = useState("");
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
   const [street, setStreet] = useState("");
@@ -21,22 +20,9 @@ function SignInUp() {
   const [phone, setPhone] = useState("");
   const [text, setText] = useState("");
 
-
   const handleSubmit = () => {
-
     dispatch(
-      createService(
-        email,
-        password,
-        login,
-        name,
-        city,
-        street,
-        number,
-        phone,
-        text,
-
-      )
+      createService(email, password, name, city, street, number, phone, text)
     );
     navigate("/signin");
   };
@@ -44,32 +30,11 @@ function SignInUp() {
     e.preventDefault();
   };
 
-
   return (
     <div className={styles.container}>
       <div className={styles.form} onSubmit={handleLogin}>
         <div className={styles.block}>
           <h1>Регистрация</h1>
-          <div className={styles.inputTop}>
-            <TextField
-              id="standard-basic"
-              label="name"
-              variant="standard"
-              type="text"
-              value={name}
-              placeholder="Name"
-              onChange={(e) => setName(e.target.value)}
-            />
-            <TextField
-              id="standard-basic"
-              label="login"
-              variant="standard"
-              type="text"
-              value={login}
-              placeholder="login"
-              onChange={(e) => setLogin(e.target.value)}
-            />
-          </div>
           <div>
             <TextField
               id="standard-basic"
@@ -80,6 +45,8 @@ function SignInUp() {
               placeholder="Введите email"
               onChange={(e) => setEmail(e.target.value)}
             />
+          </div>
+          <div>
             <TextField
               id="standard-basic"
               label="password"
@@ -88,6 +55,29 @@ function SignInUp() {
               value={password}
               placeholder="Введите пароль"
               onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className={styles.inputTop}>
+            <TextField
+              id="standard-basic"
+              label="name"
+              variant="standard"
+              type="text"
+              value={name}
+              placeholder="Name"
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div>
+            <h2>Номер телефона</h2>
+            <TextField
+              id="standard-basic"
+              label="phone"
+              variant="standard"
+              type="tel"
+              value={phone}
+              placeholder="phone"
+              onChange={(e) => setPhone(e.target.value)}
             />
           </div>
           <div>
@@ -121,18 +111,6 @@ function SignInUp() {
             />
           </div>
           <div>
-            <h2>Номер телефона</h2>
-            <TextField
-              id="standard-basic"
-              label="phone"
-              variant="standard"
-              type="tel"
-              value={phone}
-              placeholder="phone"
-              onChange={(e) => setPhone(e.target.value)}
-            />
-          </div>
-          <div>
             <textarea
               className={styles.textarea}
               value={text}
@@ -147,16 +125,17 @@ function SignInUp() {
           <div>
             <button
               className={styles.btn}
-              disabled={signinUp ||
+              disabled={
+                signinUp ||
                 !email ||
                 !password ||
-                !login ||
                 !name ||
                 !city ||
                 !street ||
                 !number ||
                 !phone ||
-                !text}
+                !text
+              }
               onClick={handleSubmit}
             >
               Регистрация
@@ -170,4 +149,4 @@ function SignInUp() {
   );
 }
 
-export default SignInUp
+export default SignInUp;
