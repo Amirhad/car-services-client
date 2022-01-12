@@ -7,6 +7,7 @@ import TextField from "@mui/material/TextField";
 
 function SignInUp() {
   const signinUp = useSelector((state) => state.authentication.signingUp);
+  const error = useSelector((state) => state.authentication.error)
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ function SignInUp() {
       <div className={styles.form} onSubmit={handleLogin}>
         <div className={styles.block}>
           <h1>Регистрация</h1>
+          <h3 className={styles.error__authorization}>{error}</h3>
           <div>
             <TextField
               id="standard-basic"
