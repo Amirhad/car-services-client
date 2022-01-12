@@ -72,13 +72,10 @@ export const carService = (state = initialState, action) => {
         }),
       };
 
-    case "users/profile/image/fulfilled":
+    case "carService/update/image/fulfilled":
       return {
         ...state,
-        carServices: {
-          img: action.payload,
-          ...state.carServices,
-        },
+        carServices: [...state.carServices, action.payload],
       };
 
     default:
@@ -89,8 +86,8 @@ export const carService = (state = initialState, action) => {
 export const uploadAvatar = (file, id) => {
   return async (dispatch, getState) => {
     const state = getState();
-    
-    dispatch({ type: "carService/create/pending" });
+
+    dispatch({ type: "carService/update/image/pending" });
     try {
       const formData = new FormData();
       formData.append("img", file);
@@ -103,9 +100,9 @@ export const uploadAvatar = (file, id) => {
       });
       const data = await res.json();
 
-      dispatch({ type: "users/profile/image/fulfilled", payload: data });
+      dispatch({ type: "carService/update/image/fulfilled", payload: data });
     } catch (error) {
-      dispatch({ type: "carService/load/rejected", payload: error });
+      dispatch({ type: "carService/update/image/rejected", payload: error });
     }
   };
 };
