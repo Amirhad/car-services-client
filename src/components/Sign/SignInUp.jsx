@@ -13,7 +13,6 @@ function SignInUp() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [login, setLogin] = useState("");
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
   const [street, setStreet] = useState("");
@@ -28,7 +27,6 @@ function SignInUp() {
       createService(
         email,
         password,
-        login,
         name,
         city,
         street,
@@ -59,15 +57,6 @@ function SignInUp() {
               value={name}
               placeholder="Name"
               onChange={(e) => setName(e.target.value)}
-            />
-            <TextField
-              id="standard-basic"
-              label="login"
-              variant="standard"
-              type="text"
-              value={login}
-              placeholder="login"
-              onChange={(e) => setLogin(e.target.value)}
             />
           </div>
           <div>
@@ -150,7 +139,6 @@ function SignInUp() {
               disabled={signinUp ||
                 !email ||
                 !password ||
-                !login ||
                 !name ||
                 !city ||
                 !street ||
