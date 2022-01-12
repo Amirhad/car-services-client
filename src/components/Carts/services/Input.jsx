@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; 
 import { useDispatch, useSelector } from 'react-redux'; 
-import { createService } from '../../../../redux/features/service'; 
+import { createService } from '../../../redux/features/service';
 import styles from './input.module.css' 
  
 const Input = () => { 

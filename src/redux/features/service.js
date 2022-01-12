@@ -47,7 +47,7 @@ export const service = (state = initialState, action) => {
       return {
         ...state,
         services: state.services.filter((item) => {
-          if (item._id === action.payload) {
+          if (item._id !== action.payload) {
             return item;
           }
         }),
@@ -99,7 +99,7 @@ export const deleteService = (id) => {
   return async (dispatch) => {
     dispatch({ type: "service/delete/pending" });
     try {
-      const res = await fetch(`http://localhost:4000/${id}`, {
+      const res = await fetch(`http://localhost:4000/services/${id}`, {
         method: "DELETE",
       });
       const json = res.json();

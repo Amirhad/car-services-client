@@ -75,9 +75,8 @@ export const carService = (state = initialState, action) => {
     case "carService/update/image/fulfilled":
       return {
         ...state,
-        carServices: [...state.carServices, action.payload],
-      };
-
+        carServices: [action.payload, ...state.carServices,],
+      }
     default:
       return state;
   }

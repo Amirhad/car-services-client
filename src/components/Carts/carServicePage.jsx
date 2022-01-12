@@ -5,6 +5,7 @@ import styles from "./carService.module.css";
 import { loadCarServices, uploadAvatar } from "../../redux/features/carService";
 import { Map, Placemark, YMaps } from "react-yandex-maps";
 import inputIcon from "../../assets/input__file__icon.png";
+import ServiceList from "./services/ServiceList";
 
 const CarServicePage = () => {
   const carServices = useSelector((state) => state.carService.carServices);
@@ -99,6 +100,7 @@ const CarServicePage = () => {
             </div>
           </div>
         </div>
+        <ServiceList />
       </div>
       <YMaps>
         <div>
