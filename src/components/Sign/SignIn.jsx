@@ -13,6 +13,7 @@ function SignIn() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorPassword, setErrorPassword] = useState("")
   const navigate = useNavigate();
 
   const handleSubmit = () => {
@@ -27,6 +28,14 @@ function SignIn() {
     e.preventDefault();
   };
 
+  const handleChangePassword = (e) => {
+    setPassword(e.target.value)
+    if(password.length < 3 || password.length > 20) {
+      setErrorPassword("Пароль должен быть минимум 3 буквы и максимум 20 букв")
+    } else {
+      setErrorPassword("")
+    }
+  }
 
 
   return (
@@ -38,6 +47,7 @@ function SignIn() {
         <div className={styles.block}>
           <h2>Авторизация</h2>
           <h3 className={styles.error__authorization}>{error}</h3>
+          <h3 className={styles.error__authorization}>{errorPassword}</h3>
           <div>
             <TextField
               id="standard-basic"
@@ -57,7 +67,7 @@ function SignIn() {
               type="password"
               value={password}
               placeholder="Введите пароль"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handleChangePassword}
             />
           </div>
           <div>

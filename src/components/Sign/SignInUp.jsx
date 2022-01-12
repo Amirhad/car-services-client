@@ -20,6 +20,8 @@ function SignInUp() {
   const [number, setNumber] = useState("");
   const [phone, setPhone] = useState("");
   const [text, setText] = useState("");
+  const [errorEmail, setErrorEmail] = useState("")
+  const [errorPassword, setErrorPassword] = useState("")
 
   const handleSubmit = () => {
     dispatch(
@@ -31,14 +33,32 @@ function SignInUp() {
     e.preventDefault();
   };
 
-
+  const handleChangeEmail = (e) => {
+    setEmail(e.target.value)
+      let regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if(!regEmail.test(String(e.target.value).toLowerCase())){
+        setErrorEmail('Invalid Email');
+      } else {
+        setErrorEmail('')
+      }
+  }
+  const handleChangePassword = (e) => {
+    setPassword(e.target.value)
+    if(password.length < 3 || password.length > 20) {
+      setErrorPassword("Пароль должен быть минимум 3 буквы и максимум 20 букв")
+    } else {
+      setErrorPassword("")
+    }
+  }
   
   return (
     <div className={styles.container}>
       <div className={styles.form} onSubmit={handleLogin}>
         <div className={styles.block}>
           <h1>Регистрация</h1>
+          <h3 className={styles.error__authorization}>{errorEmail}</h3>
           <h3 className={styles.error__authorization}>{error}</h3>
+          <h3 className={styles.error__authorization}>{errorPassword}</h3>
           <div>
             <TextField
               id="standard-basic"
@@ -47,7 +67,7 @@ function SignInUp() {
               type="email"
               value={email}
               placeholder="Введите email"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => handleChangeEmail(e)}
             />
           </div>
           <div>
@@ -58,7 +78,7 @@ function SignInUp() {
               type="password"
               value={password}
               placeholder="Введите пароль"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handleChangePassword}
             />
           </div>
           <div className={styles.inputTop}>
@@ -138,7 +158,8 @@ function SignInUp() {
                 !street ||
                 !number ||
                 !phone ||
-                !text
+                !text ||
+                !errorEmail
               }
               onClick={handleSubmit}
             >
