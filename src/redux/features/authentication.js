@@ -3,7 +3,6 @@ const initialState = {
   signingUp: false,
   signingIn: false,
   token: localStorage.getItem("token"),
-  service: {},
   id: localStorage.getItem("id"),
 };
 
