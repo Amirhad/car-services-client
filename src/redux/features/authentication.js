@@ -62,7 +62,7 @@ export const createService = (email, password, name, city, street, number, phone
 
     const res = await fetch("http://localhost:4000/carservice/register", {
       method: "POST",
-      body: JSON.stringify({ email, password, name, city, street, number, phone, text}),
+      body: JSON.stringify({ email, password, name, city, street, number, phone, text }),
       headers: {
         "Content-type": "application/json",
       },
@@ -71,10 +71,8 @@ export const createService = (email, password, name, city, street, number, phone
     const json = await res.json();
     if (json.error) {
       dispatch({ type: "authentication/signup/rejected", error: json.error });
-      console.log(1);
     } else {
       dispatch({ type: "authentication/signup/fulfilled", payload: json });
-      console.log(3);
     }
   };
 };
