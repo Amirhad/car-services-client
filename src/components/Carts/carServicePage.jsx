@@ -77,7 +77,7 @@ const CarServicePage = () => {
               <div className={styles.addressCar}>
                 <div className={styles.addressCarText}>
                   г.{carService.address.city}, ул.
-                  {carService.address.street}, {carService.address.number}
+                  {carService.address.street}, {carService.address.number} 
                 </div>
               </div>
               <h2>Описание:</h2>
