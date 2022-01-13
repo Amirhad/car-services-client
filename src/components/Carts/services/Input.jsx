@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'; 
 import { createService } from '../../../redux/features/service';
 import styles from './input.module.css' 
+import TextField from "@mui/material/TextField";
  
 const Input = () => { 
  
@@ -25,10 +26,14 @@ const Input = () => {
     setPrices('') 
   } 
   return ( 
-    <div className={styles.input}> 
-      <input type="text" value={names} name='name' placeholder='Введите услугу...' onChange={(e)=>handleService(e)}/> 
-      <input type="text" value={prices} name='price' placeholder='Введите цену...' onChange={(e)=>handlePrice(e)}/> 
-      <button type='button' onClick={()=>handleClick(names,prices)} disabled={!names || !prices}>добавить услугу</button> 
+    <div className={styles.input__body}> 
+     <div className={styles.input__container}>
+       <div className={styles.input__main}>
+        <div><TextField id="demo-helper-text-misaligned-no-helper" label="Введите услугу" type="text" value={names} name='name' placeholder='Введите услугу...' onChange={(e)=>handleService(e)} /></div>
+        <div><TextField id="outlined-basic" label="Укажите стоимость" variant="outlined" type="text" value={prices} name='price' placeholder='Введите цену...' onChange={(e)=>handlePrice(e)} /></div>
+        <div><button className={styles.input__button} type='button' onClick={()=>handleClick(names,prices)} disabled={!names || !prices}>добавить услугу</button> </div>
+       </div>
+      </div>
     </div> 
   ); 
 }; 

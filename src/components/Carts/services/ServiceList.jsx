@@ -20,27 +20,31 @@ const ServiceList = () => {
 
   return (
     <>
-    <Input />
+      <Input />
       <div className={styles.services}>
         <div>
           {loading
             ? "идет загрузка..."
             : services.map((service) => {
                 return (
-                  <div className={styles.services}>
-                    <div className={styles.name}>
-                      <span>{service.name}</span>
-                    </div>
-                    <div className={styles.price}>
-                      <span>{service.price}</span>
-                    </div>
-                    <div className={styles.div_delete}>
-                      <button
-                        className={styles.btn_delete}
-                        onClick={() => handleDelete(service._id)}
-                      >
-                        x
-                      </button>
+                  <div className={styles.service__body}>
+                    <div className={styles.service__container}>
+                      <div className={styles.service__main}>
+                        <div className={styles.name}>
+                          <span>{service.name}</span>
+                        </div>
+                        <div className={styles.price}>
+                          <span>{service.price}₽</span>
+                        </div>
+                        <div className={styles.div_delete}>
+                          <button
+                            className={styles.btn_delete}
+                            onClick={() => handleDelete(service._id)}
+                          >
+                            удалить
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 );
