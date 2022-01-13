@@ -33,10 +33,8 @@ const ServiceList = () => {
                         <div className={styles.name}>
                           <span>{service.name}</span>
                         </div>
-                        <div className={styles.price}>
-                          <span>{service.price}₽</span>
-                        </div>
                         <div className={styles.div_delete}>
+                          <span>от {service.price}₽</span>
                           <button
                             className={styles.btn_delete}
                             onClick={() => handleDelete(service._id)}
