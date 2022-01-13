@@ -110,6 +110,8 @@ body {
   background-color: rgba(255, 255, 255, 0.103);
   color: aliceblue;
   border: 3px aliceblue solid;
+  padding-left: 14px;
+  outline: none;
   
 }
 
@@ -123,4 +125,11 @@ body {
   line-height: 0;
   margin: 0;
   font-weight: normal;
+}
+.cart_street{
+  display: flex;
+  justify-content: space-around;
+  margin-left: 15px;
+  margin-right: 14px;
+
 }
