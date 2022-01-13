@@ -14,8 +14,6 @@ const CarServicePage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  const carService = carServices.find((carService) => carService._id === id);
-
   useEffect(() => {
     dispatch(loadCarServices());
   }, [dispatch]);
@@ -23,6 +21,8 @@ const CarServicePage = () => {
   const handleChangeImg = (e) => {
     dispatch(uploadAvatar(e.target.files[0], id));
   };
+
+  const carService = carServices.find((carService) => carService._id === id);
 
   if (!carServices.length) {
     return "загрузка";
@@ -44,7 +44,10 @@ const CarServicePage = () => {
                   className={`${styles.input} ${styles.input__file}`}
                   multiple
                 />
-                <label htmlFor="input__file" className={styles.input__file_button}>
+                <label
+                  htmlFor="input__file"
+                  className={styles.input__file_button}
+                >
                   <span className={styles.input__file_button_text}>
                     <img
                       className={styles.input__file_icon_wrapper}
@@ -77,7 +80,7 @@ const CarServicePage = () => {
               <div className={styles.addressCar}>
                 <div className={styles.addressCarText}>
                   г.{carService.address.city}, ул.
-                  {carService.address.street}, {carService.address.number} 
+                  {carService.address.street}, {carService.address.number}
                 </div>
               </div>
               <h2>Описание:</h2>

@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Input from "./Input";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteService, loadService } from "../../../redux/features/service";
+
 import styles from "./serviceList.module.css";
 import { useParams } from "react-router-dom";
+import { deleteService } from "../../../redux/features/carService";
 
 const ServiceList = () => {
   const carServices = useSelector((state) => state.carService.carServices);
@@ -14,16 +15,12 @@ const ServiceList = () => {
 
   const dispatch = useDispatch();
 
-  /* useEffect(() => {
-    dispatch(loadService());
-  }, [dispatch]);
- */
-  const handleDelete = (id) => {
-    dispatch(deleteService(id));
+  const handleDelete = (id, serviceId) => {
+    dispatch(deleteService(id, serviceId));
   };
 
-  const loading = useSelector((state) => state.service.loading);
-  console.log(carService.service);
+  const loading = useSelector((state) => state.carService.loading);
+
   return (
     <>
       <Input />
@@ -45,7 +42,7 @@ const ServiceList = () => {
                           carService._id ? null : !token ? null : (
                             <button
                               className={styles.btn_delete}
-                              onClick={() => handleDelete(service._id)}
+                              onClick={() => handleDelete(id, service._id)}
                             >
                               удалить
                             </button>
