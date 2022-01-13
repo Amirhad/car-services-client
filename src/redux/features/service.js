@@ -48,7 +48,7 @@ export const service = (state = initialState, action) => {
   }
 };
 
-export const loadService = () => {
+/* export const loadService = () => {
   return async (dispatch) => {
     dispatch({ type: "service/load/pending" });
     try {
@@ -59,7 +59,7 @@ export const loadService = () => {
       dispatch({ type: "service/load/rejected", payload: e });
     }
   };
-};
+}; */
 
 
 
