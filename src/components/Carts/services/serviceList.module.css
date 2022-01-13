@@ -24,3 +24,9 @@
   border-radius: 10px;
   background-color: #ffffffbd;
 }
+
+.div_delete {
+  width: 15%;
+  display: flex;
+  justify-content: space-between;
+}
