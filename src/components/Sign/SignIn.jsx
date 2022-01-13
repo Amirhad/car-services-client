@@ -13,6 +13,8 @@ function SignIn() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorPassword, setErrorPassword] = useState("")
+  const [errorEmail, setErrorEmail] = useState("")
   const navigate = useNavigate();
 
   const handleSubmit = () => {
@@ -26,7 +28,24 @@ function SignIn() {
   const handleLogin = (e) => {
     e.preventDefault();
   };
+  const handleChangeEmail = (e) => {
+    setEmail(e.target.value)
+      let regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if(!regEmail.test(String(e.target.value).toLowerCase())){
+        setErrorEmail('Invalid Email');
+      } else {
+        setErrorEmail('')
+      }
+  }
 
+  const handleChangePassword = (e) => {
+    setPassword(e.target.value)
+    if(password.length < 3 || password.length > 20) {
+      setErrorPassword("Пароль должен быть минимум 3 буквы и максимум 20 букв")
+    } else {
+      setErrorPassword("")
+    }
+  }
 
 
   return (
@@ -38,6 +57,8 @@ function SignIn() {
         <div className={styles.block}>
           <h2>Авторизация</h2>
           <h3 className={styles.error__authorization}>{error}</h3>
+          <h4 className={styles.error__authorization}>{errorEmail}</h4>
+          <h4 className={styles.error__authorization}>{errorPassword}</h4>
           <div>
             <TextField
               id="standard-basic"
@@ -46,7 +67,7 @@ function SignIn() {
               type="email"
               value={email}
               placeholder="Введите email"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleChangeEmail}
             />
           </div>
           <div>
@@ -57,7 +78,7 @@ function SignIn() {
               type="password"
               value={password}
               placeholder="Введите пароль"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handleChangePassword}
             />
           </div>
           <div>

@@ -70,10 +70,8 @@ export const createService = (email, password, name, city, street, number, phone
     const json = await res.json();
     if (json.error) {
       dispatch({ type: "authentication/signup/rejected", error: json.error });
-      console.log(1);
     } else {
       dispatch({ type: "authentication/signup/fulfilled", payload: json });
-      console.log(3);
     }
   };
 };
