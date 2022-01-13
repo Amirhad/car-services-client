@@ -60,7 +60,7 @@ function Cart() {
                     <div className={styles.cart__text}>
                       <div>
                         <p>
-                          г.{item.address.city} ул.{item.address.street}{" "}
+                          г. {item.address.city}  ул.  {item.address.street}{" "}
                           {item.address.number}{" "}
                         </p>
                         <p> {item.phone}</p>
