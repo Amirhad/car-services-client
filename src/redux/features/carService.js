@@ -77,15 +77,12 @@ export const carService = (state = initialState, action) => {
         ...state,
         carServices: state.carServices.map((item) => {
           if (item._id === action.payload._id) {
+            item.img = action.payload.img
             return item
           }
           return item
         })
       }
-      /* return {
-        ...state,
-        carServices: [...state.carServices, action.payload],
-      }; */
 
     default:
       return state;
