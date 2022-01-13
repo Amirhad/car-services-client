@@ -75,8 +75,18 @@ export const carService = (state = initialState, action) => {
     case "carService/update/image/fulfilled":
       return {
         ...state,
-        carServices: [action.payload, ...state.carServices,],
+        carServices: state.carServices.map((item) => {
+          if (item._id === action.payload._id) {
+            return item
+          }
+          return item
+        })
       }
+      /* return {
+        ...state,
+        carServices: [...state.carServices, action.payload],
+      }; */
+
     default:
       return state;
   }
