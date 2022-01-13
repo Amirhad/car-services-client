@@ -3,8 +3,16 @@ import Input from "./Input";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteService, loadService } from "../../../redux/features/service";
 import styles from "./serviceList.module.css";
+import { useParams } from 'react-router-dom';
 
 const ServiceList = () => {
+
+  const carServices = useSelector((state) => state.carService.carServices);
+  const token = useSelector((state) => state.authentication.token);
+  const carServiceId = useSelector((state) => state.authentication.id);
+  const { id } = useParams();
+  const carService = carServices.find((carService) => carService._id === id);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,12 +43,13 @@ const ServiceList = () => {
                         </div>
                         <div className={styles.div_delete}>
                           <span>от {service.price}₽</span>
+                          {carServiceId !== carService._id ? null : !token ? null : (
                           <button
                             className={styles.btn_delete}
                             onClick={() => handleDelete(service._id)}
                           >
                             удалить
-                          </button>
+                          </button>)}
                         </div>
                       </div>
                     </div>
