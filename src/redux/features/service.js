@@ -22,22 +22,7 @@ export const service = (state = initialState, action) => {
         ...state,
         error: action.payload,
       };
-    case "service/create/pending":
-      return {
-        ...state,
-        loading: true,
-      };
-    case "service/create/fulfilled":
-      return {
-        ...state,
-        services: [...state.services, action.payload],
-        loading: false,
-      };
-    case "service/create/rejected":
-      return {
-        ...state,
-        error: action.payload,
-      };
+
     case "service/delete/pending":
       return {
         ...state,
@@ -76,24 +61,7 @@ export const loadService = () => {
   };
 };
 
-export const createService = (name, price) => {
-  return async (dispatch) => {
-    dispatch({ type: "service/create/pending" });
-    try {
-      const res = await fetch("http://localhost:4000/services", {
-        method: "POST",
-        body: JSON.stringify({ name, price }),
-        headers: {
-          "Content-type": "application/json",
-        },
-      });
-      const json = await res.json();
-      dispatch({ type: "service/create/fulfilled", payload: json });
-    } catch (e) {
-      dispatch({ type: "service/create/rejected", payload: e });
-    }
-  };
-};
+
 
 export const deleteService = (id) => {
   return async (dispatch) => {

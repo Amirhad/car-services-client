@@ -3,10 +3,9 @@ import Input from "./Input";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteService, loadService } from "../../../redux/features/service";
 import styles from "./serviceList.module.css";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 const ServiceList = () => {
-
   const carServices = useSelector((state) => state.carService.carServices);
   const token = useSelector((state) => state.authentication.token);
   const carServiceId = useSelector((state) => state.authentication.id);
@@ -23,7 +22,6 @@ const ServiceList = () => {
     dispatch(deleteService(id));
   };
 
-  const services = useSelector((state) => state.service.services);
   const loading = useSelector((state) => state.service.loading);
 
   return (
@@ -33,9 +31,9 @@ const ServiceList = () => {
         <div>
           {loading
             ? "идет загрузка..."
-            : services.map((service) => {
+            : carService.service.map((service) => {
                 return (
-                  <div className={styles.service__body}>
+                  <div className={styles.service__body} key={service._id}>
                     <div className={styles.service__container}>
                       <div className={styles.service__main}>
                         <div className={styles.name}>
@@ -43,13 +41,15 @@ const ServiceList = () => {
                         </div>
                         <div className={styles.div_delete}>
                           <span>от {service.price}₽</span>
-                          {carServiceId !== carService._id ? null : !token ? null : (
-                          <button
-                            className={styles.btn_delete}
-                            onClick={() => handleDelete(service._id)}
-                          >
-                            удалить
-                          </button>)}
+                          {carServiceId !==
+                          carService._id ? null : !token ? null : (
+                            <button
+                              className={styles.btn_delete}
+                              onClick={() => handleDelete(service._id)}
+                            >
+                              удалить
+                            </button>
+                          )}
                         </div>
                       </div>
                     </div>
