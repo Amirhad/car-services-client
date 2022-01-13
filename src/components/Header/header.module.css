@@ -47,6 +47,17 @@ a {
   font-size: 17px;
 }
 
+.signin:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow .2s;
+}
+
+.signin:active {
+  background-color: #30303093;
+  border-color: #000000;
+  transform: scale(.96);
+}
+
 .header__main {
   position: relative;
   width: 100%;
@@ -162,4 +173,5 @@ a {
 	color: transparent;
 	background-clip: text;
   font-size: 92px;
+  margin-bottom: 10px;
 }
