@@ -14,16 +14,16 @@ const ServiceList = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  /* useEffect(() => {
     dispatch(loadService());
   }, [dispatch]);
-
+ */
   const handleDelete = (id) => {
     dispatch(deleteService(id));
   };
 
   const loading = useSelector((state) => state.service.loading);
-
+  console.log(carService.service);
   return (
     <>
       <Input />
