@@ -7,7 +7,6 @@ import TextField from "@mui/material/TextField";
 
 function SignInUp() {
   const signinUp = useSelector((state) => state.authentication.signingUp);
-  const error = useSelector((state) => state.authentication.error)
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -57,7 +56,6 @@ function SignInUp() {
         <div className={styles.block}>
           <h1>Регистрация</h1>
           <h3 className={styles.error__authorization}>{errorEmail}</h3>
-          <h3 className={styles.error__authorization}>{error}</h3>
           <h3 className={styles.error__authorization}>{errorPassword}</h3>
           <div>
             <TextField
@@ -158,8 +156,7 @@ function SignInUp() {
                 !street ||
                 !number ||
                 !phone ||
-                !text ||
-                !errorEmail
+                !text 
               }
               onClick={handleSubmit}
             >
