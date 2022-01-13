@@ -21,11 +21,24 @@ a {
 }
 
 .signin {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+  margin: 0;
+  outline: none;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
   width: 150px;
   height: 32px;
   position: absolute;
   left: -350px;
-  border: 2px ivory solid;
+  border: 1px ivory solid;
   border-radius: 8px;
   padding: 0 8px;
   line-height: 1.5;

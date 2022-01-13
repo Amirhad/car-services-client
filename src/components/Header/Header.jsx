@@ -31,12 +31,12 @@ const Header = () => {
             )}
             <NavLink to="/about">О нас</NavLink>
             <NavLink to="/contacts">Контакты</NavLink>
-            <NavLink to="/faq">FAQ</NavLink>
+            <NavLink to="/faq">Вопросы</NavLink>
             <NavLink to="/review">Игра</NavLink>
           </div>
         </div>
         <div className={styles.header__title}>
-          <h1 className={styles.headerAnimation}>Подберем автосервис для решения проблемы вашего авто</h1>
+          <h1 className={styles.headerAnimation}>Поиск выгодного автосервиса для решения проблем вашего авто</h1>
           <button className={styles.button_23}>
             <Link to="carts" smooth={true} duration={700}>
               список автосервисов
