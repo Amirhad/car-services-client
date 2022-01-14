@@ -38,13 +38,15 @@ a {
   height: 32px;
   position: absolute;
   left: -350px;
-  border: 1px ivory solid;
   border-radius: 8px;
-  padding: 0 8px;
   line-height: 1.5;
-  background-color: #303030;
+  background-color: #303030b7;
   color: white;
   font-size: 17px;
+}
+
+.signin a {
+  padding: 10px 46px;
 }
 
 .signin:focus-visible {
@@ -53,9 +55,10 @@ a {
 }
 
 .signin:active {
-  background-color: #30303093;
-  border-color: #000000;
+  background-color: white;
+  border-color: white;
   transform: scale(.96);
+  color: #000000;
 }
 
 .header__main {
