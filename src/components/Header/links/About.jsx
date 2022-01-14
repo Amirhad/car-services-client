@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./linksStyles/about.module.css";
+import { NavLink } from "react-router-dom";
 
 const About = () => {
   return (
@@ -14,7 +15,7 @@ const About = () => {
               background photo to make it your own.
             </p>
           </div>
-          <button className={styles.about__button}> <a className={styles.about__toHome} href="/"> На главную </a></button>
+          <button className={styles.about__button}> <NavLink className={styles.about__toHome} to="/"> На главную </NavLink></button>
           <div className={styles.about__footer}>
             Cover template for Bootstrap, by @mdo.
           </div>

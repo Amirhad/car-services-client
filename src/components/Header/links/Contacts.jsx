@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styles from "./linksStyles/contacts.module.css";
 
 const Contacts = () => {
@@ -75,10 +76,10 @@ const Contacts = () => {
           </div>
           <button className={styles.contacts__button}>
             {" "}
-            <a className={styles.contacts__toHome} href="/">
+            <NavLink className={styles.contacts__toHome} to="/">
               {" "}
               На главную{" "}
-            </a>
+            </NavLink>
           </button>
           <div className={styles.contacts__footer}>
             Cover template for Bootstrap, by @mdo.
