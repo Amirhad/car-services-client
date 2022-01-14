@@ -1,4 +1,4 @@
-import { logIn } from "../../redux/features/authentication";
+import { logIn } from "../../../redux/features/authentication";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./signIn.module.css";

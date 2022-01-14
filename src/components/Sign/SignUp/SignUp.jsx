@@ -1,12 +1,12 @@
-import { createService } from "../../redux/features/authentication";
+import { createService } from "../../../redux/features/authentication";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./sign.module.css";
+import styles from "./signUp.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 
-function SignInUp() {
-  const signinUp = useSelector((state) => state.authentication.signingUp);
+function SignUp() {
+  const signingUp = useSelector((state) => state.authentication.signingUp);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -148,7 +148,7 @@ function SignInUp() {
             <button
               className={styles.btn}
               disabled={
-                signinUp ||
+                signingUp ||
                 !email ||
                 !password ||
                 !name ||
@@ -171,4 +171,4 @@ function SignInUp() {
   );
 }
 
-export default SignInUp;
+export default SignUp;
