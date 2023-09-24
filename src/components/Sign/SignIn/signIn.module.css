@@ -86,3 +86,15 @@
 .NoEmpty {
     color: green;
 }
+.password {
+    position: relative;
+}
+.eye {
+    position: absolute;
+    top: 28px;
+    right: 6px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}

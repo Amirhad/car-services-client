@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./carService.module.css";
-import { loadCarServices, uploadAvatar } from "../../redux/features/carService";
+import { loadCarServices, uploadAvatar } from "../../../redux/features/carService";
 import { Map, Placemark, YMaps } from "react-yandex-maps";
-import inputIcon from "../../assets/input__file__icon.png";
-import ServiceList from "./services/ServiceList";
+import inputIcon from "../../../assets/input__file__icon.png";
+import ServiceList from "../services/ServiceList";
 
 const CarServicePage = () => {
   const carServices = useSelector((state) => state.carService.carServices);
@@ -14,8 +14,6 @@ const CarServicePage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  const carService = carServices.find((carService) => carService._id === id);
-
   useEffect(() => {
     dispatch(loadCarServices());
   }, [dispatch]);
@@ -23,6 +21,8 @@ const CarServicePage = () => {
   const handleChangeImg = (e) => {
     dispatch(uploadAvatar(e.target.files[0], id));
   };
+
+  const carService = carServices.find((carService) => carService._id === id);
 
   if (!carServices.length) {
     return "загрузка";
@@ -44,7 +44,10 @@ const CarServicePage = () => {
                   className={`${styles.input} ${styles.input__file}`}
                   multiple
                 />
-                <label htmlFor="input__file" className={styles.input__file_button}>
+                <label
+                  htmlFor="input__file"
+                  className={styles.input__file_button}
+                >
                   <span className={styles.input__file_button_text}>
                     <img
                       className={styles.input__file_icon_wrapper}
@@ -77,7 +80,7 @@ const CarServicePage = () => {
               <div className={styles.addressCar}>
                 <div className={styles.addressCarText}>
                   г.{carService.address.city}, ул.
-                  {carService.address.street}, {carService.address.number} 
+                  {carService.address.street}, {carService.address.number}
                 </div>
               </div>
               <h2>Описание:</h2>
@@ -107,9 +110,9 @@ const CarServicePage = () => {
           <Map
             width={"100%"}
             height={"300px"}
-            defaultState={{ center: [43.318369, 45.692419], zoom: 11 }}
+            defaultState={{ center: [carService.address.coordinate.lat, carService.address.coordinate.long], zoom: 11 }}
           >
-            <Placemark geometry={[43.318369, 45.692419]} />
+            <Placemark geometry={[carService.address.coordinate.lat, carService.address.coordinate.long]} />
           </Map>
         </div>
       </YMaps>

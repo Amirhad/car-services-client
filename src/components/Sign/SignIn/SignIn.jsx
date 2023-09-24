@@ -1,4 +1,4 @@
-import { logIn } from "../../redux/features/authentication";
+import { logIn } from "../../../redux/features/authentication";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./signIn.module.css";
@@ -15,6 +15,7 @@ function SignIn() {
   const [password, setPassword] = useState("");
   const [errorPassword, setErrorPassword] = useState("")
   const [errorEmail, setErrorEmail] = useState("")
+  const [passwordShown, setPasswordShown] = useState(false)
   const navigate = useNavigate();
 
   const handleSubmit = () => {
@@ -30,23 +31,26 @@ function SignIn() {
   };
   const handleChangeEmail = (e) => {
     setEmail(e.target.value)
-      let regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      if(!regEmail.test(String(e.target.value).toLowerCase())){
-        setErrorEmail('Invalid Email');
-      } else {
-        setErrorEmail('')
-      }
+    let regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!regEmail.test(String(e.target.value).toLowerCase())) {
+      setErrorEmail('Invalid Email');
+    } else {
+      setErrorEmail('')
+    }
   }
 
   const handleChangePassword = (e) => {
     setPassword(e.target.value)
-    if(password.length < 3 || password.length > 20) {
+    if (password.length < 3 || password.length > 20) {
       setErrorPassword("Пароль должен быть минимум 3 буквы и максимум 20 букв")
     } else {
       setErrorPassword("")
     }
   }
 
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown)
+  }
 
   return (
     <div className={styles.container}>
@@ -70,16 +74,20 @@ function SignIn() {
               onChange={handleChangeEmail}
             />
           </div>
-          <div>
+          <div className={styles.password}>
             <TextField
               id="standard-basic"
               label="password"
               variant="standard"
-              type="password"
+              type={passwordShown ? "text" : "password"}
               value={password}
               placeholder="Введите пароль"
               onChange={handleChangePassword}
             />
+            <img src="https://cdns.iconmonstr.com/wp-content/assets/preview/2017/240/iconmonstr-eye-9.png"
+              alt=""
+              className={styles.eye}
+              onClick={togglePassword} />
           </div>
           <div>
             <button

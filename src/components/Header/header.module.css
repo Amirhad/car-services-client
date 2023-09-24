@@ -21,17 +21,46 @@ a {
 }
 
 .signin {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+  margin: 0;
+  outline: none;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
   width: 150px;
   height: 32px;
   position: absolute;
   left: -350px;
-  border: 2px ivory solid;
+  border: 1px solid;
   border-radius: 8px;
-  padding: 0 8px;
   line-height: 1.5;
-  background-color: #303030;
+  background-color: #303030b7;
   color: white;
   font-size: 17px;
+  
+}
+
+.signin a {
+  padding: 10px 46px;
+}
+
+.signin:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow .2s;
+}
+
+.signin:active {
+  background-color: white;
+  border-color: white;
+  transform: scale(.96);
+  color: #000000;
 }
 
 .header__main {
@@ -149,4 +178,5 @@ a {
 	color: transparent;
 	background-clip: text;
   font-size: 92px;
+  margin-bottom: 10px;
 }

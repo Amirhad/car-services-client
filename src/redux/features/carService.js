@@ -50,6 +50,7 @@ export const carService = (state = initialState, action) => {
           if (item._id !== action.payload) {
             return item;
           }
+          return state;
         }),
         loading: false,
       };
@@ -68,7 +69,9 @@ export const carService = (state = initialState, action) => {
         ...state,
         carServices: state.carServices.map((item) => {
           if (item._id === action.payload) {
+            return item;
           }
+          return item;
         }),
       };
 
@@ -77,19 +80,86 @@ export const carService = (state = initialState, action) => {
         ...state,
         carServices: state.carServices.map((item) => {
           if (item._id === action.payload._id) {
-            return item
+            item.img = action.payload.img;
+            return item;
           }
-          return item
-        })
-      }
-      /* return {
+          return state.carServices;
+        }),
+      };
+
+    case "service/create/fulfilled":
+      return {
         ...state,
-        carServices: [...state.carServices, action.payload],
-      }; */
+        carServices: state.carServices.map((item) => {
+          if (item._id === action.payload._id) {
+            item = action.payload;
+            return item;
+          }
+          return state;
+        }),
+      };
+
+    case "service/delete/fulfilled":
+      return {
+        ...state,
+        carServices: state.carServices.map((item) => {
+          if (item._id === action.payload._id) {
+            item = action.payload;
+            return item;
+          }
+          return state;
+        }),
+      };
 
     default:
       return state;
   }
+};
+
+export const deleteService = (id, serviceId) => {
+  return async (dispatch) => {
+    dispatch({ type: "service/delete/pending" });
+    try {
+      const res = await fetch(
+        `http://localhost:4000/carservice/delete/one/service/${id}`,
+        {
+          method: "PATCH",
+          body: JSON.stringify({ _id: serviceId }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
+      const json = await res.json();
+
+      dispatch({ type: "service/delete/fulfilled", payload: json });
+    } catch (e) {
+      dispatch({ type: "service/delete/rejected", payload: e });
+    }
+  };
+};
+
+export const addService = (name, price, id) => {
+  return async (dispatch) => {
+    dispatch({ type: "service/create/pending" });
+    try {
+      const res = await fetch(
+        `http://localhost:4000/carservice/add/services/${id}`,
+        {
+          method: "PATCH",
+          body: JSON.stringify({ name, price }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
+      const json = await res.json();
+
+      dispatch({ type: "service/create/fulfilled", payload: json });
+    } catch (e) {
+      dispatch({ type: "service/create/rejected", payload: e });
+    }
+  };
 };
 
 export const uploadAvatar = (file, id) => {
